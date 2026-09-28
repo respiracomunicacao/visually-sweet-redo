@@ -33,11 +33,23 @@ export function HomePage() {
     <>
       {/* =========================================================================
           1. BANNER PRINCIPAL (HOME)
-          SEM FOTO NO BANNER HERO (conforme solicitado), tipografia forte,
-          fundo nobre sólido (#042148), entrada dinâmica e botões Fale Conosco
+          Com imagem CDR-Technology ao fundo e efeito de movimento suave (Ken Burns)
+          Sobreposição corporativa nobre para legibilidade perfeita
          ========================================================================= */}
-      <section className="relative bg-[#042148] text-white py-20 lg:py-28 px-5 lg:px-8 border-b border-slate-800 overflow-hidden">
-        {/* Sutis linhas geométricas de conectividade no fundo */}
+      <section className="relative bg-[#042148] text-white py-24 lg:py-32 px-5 lg:px-8 border-b border-slate-800 overflow-hidden min-h-[620px] flex items-center justify-center">
+        {/* Imagem de Fundo com Movimento Suave e Contínuo */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img
+            src="/CDR-Technology.png"
+            alt="Infraestrutura de tecnologia e nuvem corporativa"
+            className="w-full h-full object-cover object-center animate-hero-bg opacity-35"
+          />
+        </div>
+
+        {/* Gradiente Corporativo Nobre para Garantir Leitura Impecável */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#042148]/90 via-[#042148]/75 to-[#042148]/95 pointer-events-none" />
+
+        {/* Linhas sutis de grade tech */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-5xl text-center space-y-8">
