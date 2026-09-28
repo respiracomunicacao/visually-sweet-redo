@@ -1,39 +1,456 @@
 import { Link, useRouterState } from '@tanstack/react-router';
 import { useState } from 'react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { Phone, MessageSquare, Menu, X, ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const links = [
-  { to: '/', label: 'Início' },
-  { to: '/quem-somos', label: 'Quem Somos' },
-  { to: '/solucoes', label: 'Soluções' },
-  { to: '/novidades', label: 'Novidades' },
-  { to: '/contato', label: 'Contato' },
+// Menu de Navegação Oficial conforme Mapa de Site solicitado:
+// 1. HOME (Início)
+// 2. A DUALCON (Quem Somos / Institucional)
+// 3. SOLUÇÕES (Vertical de Soluções)
+// 4. EQUIPE (Nossa Equipe e Especialistas)
+// 5. BLOG (Novidades e Artigos)
+// 6. CONTATO (Fale Conosco)
+const navLinks = [
+  { to: '/', label: 'HOME' },
+  { to: '/quem-somos', label: 'A DUALCON' },
+  { to: '/solucoes', label: 'SOLUÇÕES' },
+  { to: '/equipe', label: 'EQUIPE' },
+  { to: '/novidades', label: 'BLOG' },
+  { to: '/contato', label: 'CONTATO' },
 ] as const;
+
+export function TopBar() {
+  return (
+    <div className="bg-[#042148] text-white py-2 px-5 lg:px-8 text-xs font-medium border-b border-white/10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <div className="flex items-center gap-6">
+          <a
+            href="https://wa.me/5551993321591"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 hover:text-[#EE4C1B] transition-colors"
+          >
+            <MessageSquare className="size-3.5 text-[#EE4C1B]" />
+            <span>+55 (51) 99332-1591</span>
+          </a>
+          <a
+            href="tel:+555135935437"
+            className="hidden sm:flex items-center gap-1.5 hover:text-[#EE4C1B] transition-colors"
+          >
+            <Phone className="size-3.5 text-[#094AEB]" />
+            <span>+55 (51) 3593-5437</span>
+          </a>
+          <span className="hidden md:flex items-center gap-1 text-slate-300">
+            <MapPin className="size-3.5 text-slate-400" />
+            <span>Campo Bom – RS • Vale dos Sinos</span>
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="hidden lg:inline text-slate-300">
+            Há 20 anos conectando o agora ao futuro.
+          </span>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.instagram.com/dualcon_conectividade/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300 hover:text-[#EE4C1B] transition-colors"
+              aria-label="Instagram"
+            >
+              Instagram
+            </a>
+            <span className="text-slate-600">|</span>
+            <a
+              href="https://br.linkedin.com/in/dualcon-conectividade-4309b7127"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300 hover:text-[#094AEB] transition-colors"
+              aria-label="LinkedIn"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  return <header className="relative z-30 border-b border-border bg-background/90 backdrop-blur-xl">
-    <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
-      <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="Dualcon, início">
-        <span className="action-gradient grid size-10 place-items-center rounded-lg font-display text-xl font-extrabold">D</span>
-        <span className="font-display text-xl font-bold">Dualcon<span className="text-brand">.</span></span>
-      </Link>
-      <nav aria-label="Navegação principal" className="hidden items-center gap-1 rounded-full border border-border bg-card/50 p-1.5 backdrop-blur-xl md:flex">
-        {links.map(link => <Link key={link.to} to={link.to} className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${pathname === link.to ? 'bg-brand text-primary-foreground' : 'text-muted-foreground hover:text-foreground'}`}>{link.label}</Link>)}
-      </nav>
-      <Button variant="hero" size="pill" asChild className="hidden lg:inline-flex"><Link to="/contato">Fale com um especialista <ArrowRight /></Link></Button>
-      <Button variant="glass" size="icon" className="md:hidden" aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
-    </div>
-    {open && <nav aria-label="Navegação móvel" className="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-border bg-background px-5 py-5 shadow-xl md:hidden">{links.map(link => <Link onClick={() => setOpen(false)} key={link.to} to={link.to} className={`rounded-md px-4 py-3 text-sm ${pathname === link.to ? 'bg-brand text-primary-foreground' : 'text-foreground'}`}>{link.label}</Link>)}</nav>}
-  </header>;
+
+  return (
+    <>
+      <TopBar />
+      <header className="sticky top-0 z-40 bg-white border-b border-slate-200">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
+          
+          {/* Logo Oficial Vetorial em SVG Horizontal da Pasta LOGOS */}
+          <Link to="/" className="flex items-center shrink-0" aria-label="Dualcon Conectividade">
+            <img
+              src="/logo-dualcon-horizontal-color.svg"
+              alt="Dualcon Conectividade"
+              width={220}
+              height={48}
+              className="h-9 sm:h-11 w-auto object-contain"
+            />
+          </Link>
+
+          {/* Menu de Navegação Sólido e Elegante */}
+          <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`px-3.5 py-2 text-xs font-extrabold tracking-wider transition-colors rounded-md font-display ${
+                    isActive
+                      ? 'text-[#042148] border-b-2 border-[#EE4C1B] rounded-none'
+                      : 'text-slate-700 hover:text-[#042148] hover:bg-slate-50'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Botão de Atendimento Direto */}
+          <div className="hidden sm:flex items-center gap-4">
+            <Button
+              asChild
+              className="rounded-full bg-[#EE4C1B] hover:bg-[#d63d0f] text-white font-bold px-6 h-10 text-xs transition-colors tracking-wide font-display shadow-sm"
+            >
+              <a
+                href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20diagn%C3%B3stico%20de%20TI."
+                target="_blank"
+                rel="noreferrer"
+              >
+                Fale Conosco
+                <ArrowRight className="size-3.5 ml-1.5" />
+              </a>
+            </Button>
+          </div>
+
+          {/* Botão Mobile */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden text-[#042148]"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          >
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          </Button>
+        </div>
+
+        {/* Menu Mobile */}
+        {open && (
+          <nav className="border-t border-slate-200 bg-white px-6 py-5 lg:hidden flex flex-col gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className={`px-4 py-2.5 rounded-lg text-sm font-bold font-display ${
+                  pathname === link.to
+                    ? 'bg-[#042148] text-white'
+                    : 'text-slate-700 hover:bg-slate-100'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+              <a
+                href="https://wa.me/5551993321591"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 rounded-lg bg-[#25d366] text-white py-3 font-bold text-xs"
+              >
+                <MessageSquare className="size-4" />
+                WhatsApp (51) 99332-1591
+              </a>
+            </div>
+          </nav>
+        )}
+      </header>
+    </>
+  );
 }
 
-export function ContactBand({ title = 'Vamos conversar sobre a sua infraestrutura?' }: { title?: string }) {
-  return <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8"><div className="panel-gradient flex flex-col items-start justify-between gap-7 rounded-lg border border-brand/20 p-8 md:p-12 lg:flex-row lg:items-center"><div><h2 className="max-w-2xl text-3xl font-bold leading-tight md:text-4xl">{title}</h2><p className="mt-4 max-w-xl text-muted-foreground">Conte com nossa equipe para encontrar as soluções certas para sua operação.</p></div><Button variant="light" size="pill" asChild className="shrink-0"><Link to="/contato">Iniciar conversa <ArrowRight /></Link></Button></div></section>;
+export function FloatingWhatsAppButton() {
+  return (
+    <aside aria-label="Atendimento rápido" className="fixed bottom-6 right-6 z-50">
+      <a
+        href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Estou%20no%20site%20da%20Dualcon%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center justify-center size-14 rounded-full bg-[#25d366] text-white shadow-xl hover:scale-110 active:scale-95 transition-transform"
+        aria-label="Fale conosco no WhatsApp"
+      >
+        <svg className="size-8 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.055-1.92-.477-1.528-.633-2.511-2.185-2.587-2.285-.077-.101-.617-.824-.617-1.57 0-.746.391-1.114.53-1.265.14-.15.305-.188.406-.188.102 0 .204.002.293.007.094.004.221-.035.345.263.128.307.436 1.066.474 1.144.038.077.063.168.012.268-.051.101-.077.164-.152.253-.076.088-.16.197-.229.265-.076.076-.156.159-.067.311.089.152.396.654.85 1.059.584.521 1.077.683 1.23.759.152.076.241.063.33-.038.089-.102.381-.444.483-.596.101-.152.203-.127.34-.076.14.051.889.418 1.041.494.153.076.254.114.292.177.038.064.038.368-.106.773z" />
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.66 1.438 5.176L2 22l4.981-1.393A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.637 0-3.15-.466-4.437-1.272l-.318-.2-2.964.829.844-2.884-.219-.348A8.172 8.172 0 0 1 3.8 12c0-4.521 3.679-8.2 8.2-8.2 4.521 0 8.2 3.679 8.2 8.2 0 4.521-3.679 8.2-8.2 8.2z" />
+        </svg>
+      </a>
+    </aside>
+  );
+}
+
+export function ContactBand({
+  title = 'Conectando o agora ao futuro da sua empresa.',
+  subtitle = 'Converse com nossos especialistas e descubra como uma infraestrutura de TI sólida, segura e gerenciada transforma sua operação.',
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
+  return (
+    <section className="bg-[#042148] text-white py-16 px-5 lg:px-8 border-t border-slate-800">
+      <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="max-w-2xl">
+          <span className="rounded bg-[#EE4C1B] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white font-display">
+            Atendimento Consultivo
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-white leading-tight font-display">
+            {title}
+          </h2>
+          <p className="mt-3 text-slate-300 text-base leading-relaxed">
+            {subtitle}
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
+          <Button
+            asChild
+            className="rounded-full bg-[#EE4C1B] hover:bg-[#d63d0f] text-white font-bold h-12 px-8 text-sm transition-colors font-display"
+          >
+            <a
+              href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20diagn%C3%B3stico%20de%20TI."
+              target="_blank"
+              rel="noreferrer"
+            >
+              Falar com um Especialista
+              <ArrowRight className="size-4 ml-2" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full border-white/30 text-white hover:bg-white hover:text-[#042148] font-bold h-12 px-8 text-sm bg-transparent transition-colors font-display"
+          >
+            <Link to="/contato">
+              Enviar Mensagem
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function InstagramFeedWidget() {
+  return (
+    <section className="bg-white py-14 px-5 lg:px-8 border-t border-slate-200">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
+              Redes Sociais
+            </span>
+            <h3 className="mt-1 text-2xl font-extrabold text-[#042148] font-display">
+              Siga a Dualcon no Instagram
+            </h3>
+          </div>
+          <a
+            href="https://www.instagram.com/dualcon_conectividade/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs font-bold text-[#EE4C1B] hover:underline inline-flex items-center gap-1 font-display"
+          >
+            @dualcon_conectividade ↗
+          </a>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a
+            href="https://www.instagram.com/dualcon_conectividade/"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+          >
+            <img
+              src="/suporte-ti.png"
+              alt="Suporte Técnico Dualcon"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
+              Consultoria & Suporte de TI
+            </div>
+          </a>
+          <a
+            href="https://www.instagram.com/dualcon_conectividade/"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+          >
+            <img
+              src="/card-relacoes.png"
+              alt="Equipe Dualcon"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
+              Equipe & Proximidade Humana
+            </div>
+          </a>
+          <a
+            href="https://www.instagram.com/dualcon_conectividade/"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+          >
+            <img
+              src="/ia-card.jpg"
+              alt="Inteligência Artificial e Inovação"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
+              Tecnologia & Inovação
+            </div>
+          </a>
+          <a
+            href="https://www.instagram.com/dualcon_conectividade/"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+          >
+            <img
+              src="/card-descomplicar.png"
+              alt="Descomplicando a TI"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
+              Suporte Presencial & Remoto
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function SiteFooter() {
-  return <footer className="border-t border-border bg-steel"><div className="mx-auto grid max-w-7xl gap-9 px-5 py-12 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8"><div><Link to="/" className="font-display text-xl font-bold">Dualcon<span className="text-brand">.</span></Link><p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Conectividade e infraestrutura de TI para empresas que precisam seguir em frente.</p></div><div><p className="mb-4 text-sm font-semibold">Navegação</p><div className="grid gap-2">{links.map(link => <Link key={link.to} to={link.to} className="text-sm text-muted-foreground hover:text-brand">{link.label}</Link>)}</div></div><div><p className="mb-4 text-sm font-semibold">Contato</p><a href="tel:+555135935437" className="block text-sm text-muted-foreground hover:text-brand">(51) 3593-5437</a><a href="https://wa.me/5551993321591" target="_blank" rel="noreferrer" className="mt-2 block text-sm text-muted-foreground hover:text-brand">(51) 99332-1591</a><p className="mt-2 text-sm text-muted-foreground">Campo Bom, RS</p></div></div><div className="border-t border-border px-5 py-5 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Dualcon Conectividade</div></footer>;
+  return (
+    <footer className="bg-[#0F0F0F] text-slate-300 border-t border-slate-800">
+      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Coluna 1 - Identidade Oficial */}
+          <div className="space-y-4">
+            <img
+              src="/logo-dualcon-horizontal-white.svg"
+              alt="Dualcon Conectividade"
+              width={190}
+              height={45}
+              className="h-9 w-auto object-contain"
+            />
+            <p className="text-xs font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
+              Conectando o agora ao futuro.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Soluções em conectividade, consultoria e infraestrutura de TI corporativa. Há 20 anos no Vale dos Sinos e RS.
+            </p>
+            
+            {/* Ícones Redes Sociais */}
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href="https://www.instagram.com/dualcon_conectividade/"
+                target="_blank"
+                rel="noreferrer"
+                className="size-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#EE4C1B] transition-colors"
+                aria-label="Instagram"
+              >
+                ig
+              </a>
+              <a
+                href="https://br.linkedin.com/in/dualcon-conectividade-4309b7127"
+                target="_blank"
+                rel="noreferrer"
+                className="size-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#094AEB] transition-colors"
+                aria-label="LinkedIn"
+              >
+                in
+              </a>
+              <a
+                href="https://www.facebook.com/dualcond2c"
+                target="_blank"
+                rel="noreferrer"
+                className="size-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#094AEB] transition-colors"
+                aria-label="Facebook"
+              >
+                fb
+              </a>
+            </div>
+          </div>
+
+          {/* Coluna 2 */}
+          <div>
+            <h4 className="text-white font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2 font-display">
+              Soluções em TI
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><Link to="/solucoes" hash="consultoria" className="hover:text-[#EE4C1B] transition-colors">Consultoria e Suporte</Link></li>
+              <li><Link to="/solucoes" hash="seguranca" className="hover:text-[#EE4C1B] transition-colors">Segurança da Informação</Link></li>
+              <li><Link to="/solucoes" hash="backup" className="hover:text-[#EE4C1B] transition-colors">Backup Gerenciado</Link></li>
+              <li><Link to="/solucoes" hash="dell" className="hover:text-[#EE4C1B] transition-colors">Equipamentos Dell</Link></li>
+              <li><Link to="/solucoes" hash="redes" className="hover:text-[#EE4C1B] transition-colors">Infraestrutura de Redes</Link></li>
+              <li><Link to="/solucoes" hash="licenciamento" className="hover:text-[#EE4C1B] transition-colors">Licenciamento de Software</Link></li>
+            </ul>
+          </div>
+
+          {/* Coluna 3 */}
+          <div>
+            <h4 className="text-white font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2 font-display">
+              Navegação
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><Link to="/" className="hover:text-[#EE4C1B] transition-colors">1. HOME</Link></li>
+              <li><Link to="/quem-somos" className="hover:text-[#EE4C1B] transition-colors">2. A DUALCON</Link></li>
+              <li><Link to="/solucoes" className="hover:text-[#EE4C1B] transition-colors">3. SOLUÇÕES</Link></li>
+              <li><Link to="/equipe" className="hover:text-[#EE4C1B] transition-colors">4. EQUIPE</Link></li>
+              <li><Link to="/novidades" className="hover:text-[#EE4C1B] transition-colors">5. BLOG</Link></li>
+              <li><Link to="/contato" className="hover:text-[#EE4C1B] transition-colors">6. CONTATO</Link></li>
+            </ul>
+          </div>
+
+          {/* Coluna 4 */}
+          <div>
+            <h4 className="text-white font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2 font-display">
+              Contato & Localização
+            </h4>
+            <div className="space-y-3 text-sm text-slate-300">
+              <p className="flex items-center gap-2">
+                <Phone className="size-4 text-[#094AEB]" />
+                <a href="tel:+555135935437" className="hover:text-white">+55 (51) 3593-5437</a>
+              </p>
+              <p className="flex items-center gap-2">
+                <MessageSquare className="size-4 text-[#EE4C1B]" />
+                <a href="https://wa.me/5551993321591" target="_blank" rel="noreferrer" className="hover:text-white">+55 (51) 99332-1591</a>
+              </p>
+              <p className="flex items-start gap-2 pt-2 text-xs text-slate-400 leading-relaxed">
+                <MapPin className="size-4 text-[#EE4C1B] shrink-0 mt-0.5" />
+                <span>Av. Carlos Strassburger Filho, 5796 – Pavilhão H, Campo Bom – RS</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} Dualcon Conectividade. Todos os direitos reservados.</p>
+          <p>Manual de Marca & Projeto desenvolvido por Respira Comunicação</p>
+        </div>
+      </div>
+    </footer>
+  );
 }

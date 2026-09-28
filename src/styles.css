@@ -3,64 +3,118 @@
 @import "tw-animate-css";
 
 @theme inline {
-  --font-display: "Sora", sans-serif;
-  --font-body: "Manrope", sans-serif;
+  --font-display: "Montserrat", "Grift", sans-serif;
+  --font-body: "DM Sans", "Blauer Nue", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--card);
-  --color-popover-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-foreground: #ffffff;
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--foreground);
+  --color-secondary-foreground: #ffffff;
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--foreground);
   --color-border: var(--border);
-  --color-input: var(--border);
-  --color-ring: var(--primary);
-  --color-brand: var(--brand);
-  --color-steel: var(--steel);
-  --color-frost: var(--frost);
-  --color-highlight: var(--highlight);
-  --color-success: var(--success);
-  --radius-sm: 0.25rem;
+  
+  /* Cores Oficiais do Manual de Marca DUALCON */
+  --color-dual-orange: #EE4C1B;
+  --color-dual-blue: #094AEB;
+  --color-dual-navy: #042148;
+  --color-dual-dark: #2B2B2B;
+  --color-dual-black: #0F0F0F;
+  --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
-  --radius-lg: 0.5rem;
+  --radius-lg: 0.75rem;
 }
+
 :root {
-  --background: oklch(0.17 0.025 247);
-  --foreground: oklch(0.97 0.008 240);
-  --card: oklch(0.24 0.029 247);
-  --card-foreground: oklch(0.97 0.008 240);
-  --primary: oklch(0.68 0.146 228);
-  --primary-foreground: oklch(0.12 0.025 247);
-  --secondary: oklch(0.28 0.032 246);
-  --muted: oklch(0.26 0.027 247);
-  --muted-foreground: oklch(0.76 0.018 246);
-  --accent: oklch(0.32 0.047 239);
-  --border: oklch(0.97 0.008 240 / 15%);
-  --brand: oklch(0.67 0.158 228);
-  --steel: oklch(0.2 0.031 249);
-  --frost: oklch(0.89 0.031 237);
-  --highlight: oklch(0.83 0.085 222);
-  --success: oklch(0.78 0.129 159);
-  --gradient-action: linear-gradient(110deg, var(--brand), var(--highlight));
-  --gradient-panel: linear-gradient(125deg, color-mix(in oklab, var(--brand) 24%, var(--steel)), var(--steel) 68%);
-  --shadow-glow: 0 16px 38px -18px color-mix(in oklab, var(--brand) 42%, transparent);
+  /* Manual de Marca Oficial DUALCON:
+     - Laranja Primário: #EE4C1B (PANTONE 1665 CP)
+     - Azul Vibrante: #094AEB (PANTONE 2935 CP)
+     - Azul Marinho Corporativo: #042148 (PANTONE 2768 CP)
+     - Cinza Escuro: #2B2B2B (PANTONE 419 CP)
+     - Preto: #0F0F0F
+     - Branco: #FFFFFF
+  */
+  --background: #ffffff;
+  --foreground: #2B2B2B;
+  --card: #ffffff;
+  --card-foreground: #2B2B2B;
+  --primary: #EE4C1B;
+  --primary-foreground: #ffffff;
+  --secondary: #042148;
+  --secondary-foreground: #ffffff;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  
+  --dual-orange: #EE4C1B;
+  --dual-orange-hover: #d63d0f;
+  --dual-blue: #094AEB;
+  --dual-blue-hover: #073bc2;
+  --dual-navy: #042148;
+  --dual-dark: #2B2B2B;
+  --dual-black: #0F0F0F;
 }
+
 @layer base {
-  * { border-color: var(--border); }
-  html { scroll-behavior: smooth; }
-  body { background: var(--background); color: var(--foreground); font-family: var(--font-body); }
-  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: 0; }
-  ::selection { background: var(--brand); color: var(--primary-foreground); }
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--dual-navy);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
 }
-@utility action-gradient { background: var(--gradient-action); color: var(--primary-foreground); box-shadow: var(--shadow-glow); }
-@utility panel-gradient { background: var(--gradient-panel); }
-@utility brand-gradient-text { background: var(--gradient-action); background-clip: text; color: transparent; }
-@utility atmospheric { background: radial-gradient(ellipse at 75% 20%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 45%), radial-gradient(ellipse at 5% 80%, color-mix(in oklab, var(--frost) 5%, transparent), transparent 55%); }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+/* Helpers de Marca */
+.bg-dual-orange { background-color: #EE4C1B; }
+.bg-dual-blue { background-color: #094AEB; }
+.bg-dual-navy { background-color: #042148; }
+.bg-dual-dark { background-color: #2B2B2B; }
+
+.text-dual-orange { color: #EE4C1B; }
+.text-dual-blue { color: #094AEB; }
+.text-dual-navy { color: #042148; }
+.text-dual-dark { color: #2B2B2B; }
+
+.border-dual-orange { border-color: #EE4C1B; }
+.border-dual-blue { border-color: #094AEB; }
+.border-dual-navy { border-color: #042148; }
+
+/* Botões Oficiais */
+.btn-dual-primary {
+  background-color: #EE4C1B;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn-dual-primary:hover {
+  background-color: #d63d0f;
+  transform: translateY(-1px);
+}
+
+.btn-dual-navy {
+  background-color: #042148;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn-dual-navy:hover {
+  background-color: #094AEB;
+  transform: translateY(-1px);
+}

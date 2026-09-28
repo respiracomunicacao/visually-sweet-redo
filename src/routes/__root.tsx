@@ -10,24 +10,24 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SiteHeader, SiteFooter } from "@/components/site-shell";
+import { SiteHeader, SiteFooter, FloatingWhatsAppButton } from "@/components/site-shell";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#060d17] px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <h1 className="text-7xl font-extrabold text-[#009cde]">404</h1>
+        <h2 className="mt-4 text-2xl font-bold text-white">Página não encontrada</h2>
+        <p className="mt-2 text-sm text-slate-400">
+          O link acessado pode ter mudado ou não estar mais disponível.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-[#009cde] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#009cde]/30 hover:brightness-110"
           >
-            Go home
+            Voltar para o início
           </Link>
         </div>
       </div>
@@ -43,29 +43,29 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#060d17] px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+        <h1 className="text-xl font-bold tracking-tight text-white">
+          Ops, algo deu errado
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-sm text-slate-400">
+          Ocorreu uma falha temporária ao carregar este conteúdo.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-[#009cde] px-6 py-2.5 text-sm font-semibold text-white shadow"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-sm font-medium text-white hover:bg-white/10"
           >
-            Go home
+            Página inicial
           </a>
         </div>
       </div>
@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      
+      { title: "Dualcon Conectividade | Soluções em Infraestrutura de TI e Segurança" },
+      { name: "description", content: "Há 20 anos conectando empresas com soluções inteligentes em TI: Consultoria, Segurança Bitdefender e Fortinet, Backup Veeam, Equipamentos Dell e Redes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-
     ],
     links: [
       {
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -102,11 +102,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-white text-slate-800 antialiased selection:bg-[#EE4C1B] selection:text-white">
         {children}
         <Scripts />
       </body>
@@ -120,8 +120,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
-      <main><Outlet /></main>
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
       <SiteFooter />
+      <FloatingWhatsAppButton />
     </QueryClientProvider>
   );
 }
