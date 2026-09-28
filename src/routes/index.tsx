@@ -64,10 +64,10 @@ export function HomePage() {
             <span className="text-[#EE4C1B] font-extrabold text-sm">&gt;</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-display">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight font-display">
             Mais do que suporte. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">Somos seu braço</span>{" "}
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#EE4C1B] to-[#ff7e54]">direito digital.</span>
+            <span>Somos seu braço</span>{" "}
+            <span className="italic text-[#EE4C1B]">direito digital.</span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed font-body">
