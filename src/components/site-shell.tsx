@@ -342,7 +342,7 @@ export function InstagramFeedWidget() {
             </div>
           </a>
 
-          {/* Post 4: Inteligência & Suporte Proativo */}
+          {/* Post 4: Principais Tendências de TI para 2026 (Nova Arte do Cliente) */}
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
@@ -351,13 +351,13 @@ export function InstagramFeedWidget() {
           >
             <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
               <img
-                src="/ia-card.jpg"
-                alt="Inovação e Suporte"
+                src="/post-tendencias-2026.png"
+                alt="Principais Tendências de TI para 2026"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-3 left-3 right-3 text-xs font-bold text-white font-display">
-                Inovação & Estratégia Tecnológica
+                Tendências de TI para 2026
               </div>
             </div>
           </a>

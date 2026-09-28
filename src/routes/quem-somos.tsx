@@ -60,50 +60,51 @@ function AboutPage() {
 
       {/* =========================================================================
           2. HISTÓRIA EM ITENS (Linha do Tempo e Marcos de 20 Anos)
+          Seção Clara Intercalada com Glassmorphism Claro
          ========================================================================= */}
-      <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+      <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
               <span className="text-[#094AEB]">&lt;</span> NOSSA TRAJETÓRIA <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               20 anos construindo pontes tecnológicas sólidas
             </h2>
-            <p className="mt-4 text-base text-slate-400">
+            <p className="mt-4 text-base text-slate-600 font-body">
               Conheça em itens como evoluímos ao lado dos maiores polos empresariais do Rio Grande do Sul.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
+            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#EE4C1B] shadow-sm">
               <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">2005</span>
-              <h3 className="mt-3 text-lg font-bold text-white font-display">Fundação & Cabeamento</h3>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Fundação & Cabeamento</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
                 Início das operações em Campo Bom – RS, com foco em estruturação física de redes, servidores locais e suporte a empresas do Vale dos Sinos.
               </p>
             </div>
 
-            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#094AEB]">
+            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#094AEB] shadow-sm">
               <span className="text-3xl font-extrabold text-[#094AEB] font-display">2012</span>
-              <h3 className="mt-3 text-lg font-bold text-white font-display">Parceria Dell & Servidores</h3>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Parceria Dell & Servidores</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
                 Homologação técnica oficial com a Dell Technologies, levando servidores de alta densidade e storages para indústrias e empresas de comércio exterior.
               </p>
             </div>
 
-            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-slate-400">
-              <span className="text-3xl font-extrabold text-slate-200 font-display">2018</span>
-              <h3 className="mt-3 text-lg font-bold text-white font-display">Segurança & Nuvem</h3>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-slate-400 shadow-sm">
+              <span className="text-3xl font-extrabold text-slate-700 font-display">2018</span>
+              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Segurança & Nuvem</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
                 Expansão para cibersegurança avançada com Fortinet, Bitdefender e rotinas de backup Veeam em nuvem, garantindo tolerância zero a ransomware.
               </p>
             </div>
 
-            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
+            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#EE4C1B] shadow-sm">
               <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">Hoje</span>
-              <h3 className="mt-3 text-lg font-bold text-white font-display">Conectando o Futuro</h3>
-              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Conectando o Futuro</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
                 Mais de duas décadas de credibilidade técnica, integrando inteligência artificial, computação corporativa e suporte presencial humanizado.
               </p>
             </div>

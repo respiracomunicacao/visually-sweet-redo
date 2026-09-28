@@ -34,21 +34,21 @@ export const partnerLogosData = [
 
 export function PartnerLogosBar() {
   return (
-    <section className="bg-[#040916] border-y border-white/5 py-12 relative overflow-hidden">
+    <section className="bg-white border-y border-slate-200/80 py-12 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 font-display flex items-center justify-center gap-2">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-[#042148] mb-8 font-display flex items-center justify-center gap-2">
           <span className="text-[#094AEB]">&lt;</span> PARCEIROS TECNOLÓGICOS HOMOLOGADOS <span className="text-[#EE4C1B]">&gt;</span>
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {partnerLogosData.map((brand) => (
             <div
               key={brand.name}
-              className="flex items-center justify-center p-4 rounded-xl glass-panel glass-panel-hover h-20 group"
+              className="flex items-center justify-center p-4 rounded-2xl glass-panel-light glass-panel-light-hover h-20 group shadow-xs hover:border-[#094AEB]"
             >
               <img
                 src={brand.logo}
                 alt={brand.alt}
-                className="max-h-8 max-w-[120px] object-contain filter brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all opacity-85 group-hover:opacity-100"
+                className="max-h-8 max-w-[120px] object-contain transition-all duration-300 group-hover:scale-105"
               />
             </div>
           ))}

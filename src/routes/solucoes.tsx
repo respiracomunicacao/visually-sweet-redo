@@ -105,16 +105,16 @@ function SolutionsPage() {
              (Comércio Exterior, Indústria, Saúde, Agências, Produtoras)
              Com Dores, Soluções, Exemplos Práticos, Diferenciais e Problemas Críticos
          ========================================================================= */}
-      <section id="verticais" className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+      <section id="verticais" className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
               <span className="text-[#094AEB]">&lt;</span> ESPECIALIZAÇÃO SETORIAL <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               Soluções Desenhadas para o Seu Mercado
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300">
+            <p className="mt-4 text-base sm:text-lg text-slate-600 font-body">
               Cada segmento possui exigências próprias. Veja como atendemos as dores reais da sua área:
             </p>
           </div>
@@ -132,7 +132,7 @@ function SolutionsPage() {
                   className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold font-display transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#EE4C1B] text-white shadow-lg shadow-[#EE4C1B]/30'
-                      : 'glass-panel text-slate-300 hover:text-white hover:bg-white/10'
+                      : 'bg-white text-slate-700 hover:text-[#094AEB] hover:bg-slate-100 border border-slate-200/80 shadow-xs'
                   }`}
                 >
                   <Icon className={`size-4 ${isSelected ? 'text-white' : 'text-[#094AEB]'}`} />
@@ -142,16 +142,16 @@ function SolutionsPage() {
             })}
           </div>
 
-          {/* Card Detalhado da Vertical Selecionada em Dark Glass */}
-          <div className="glass-panel rounded-3xl p-8 lg:p-12 shadow-2xl relative border-t-2 border-t-[#EE4C1B]">
-            <div className="border-b border-white/10 pb-6 mb-8">
+          {/* Card Detalhado da Vertical Selecionada em Light Glass Premium */}
+          <div className="glass-panel-light rounded-3xl p-8 lg:p-12 shadow-xl relative border-t-4 border-t-[#EE4C1B]">
+            <div className="border-b border-slate-200 pb-6 mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-[#EE4C1B] font-display">
                 Vertical de Atuação
               </span>
-              <h3 className="mt-2 text-2xl sm:text-4xl font-extrabold text-white font-display">
+              <h3 className="mt-2 text-2xl sm:text-4xl font-extrabold text-[#042148] font-display">
                 {currentSector.title}
               </h3>
-              <p className="mt-2 text-base text-slate-300">
+              <p className="mt-2 text-base text-slate-600 font-body">
                 {currentSector.subtitle}
               </p>
             </div>
@@ -160,25 +160,25 @@ function SolutionsPage() {
               {/* Principais Dores & Problemas Críticos */}
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-red-400 font-display flex items-center gap-2 mb-3">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-red-600 font-display flex items-center gap-2 mb-3">
                     <AlertTriangle className="size-4" />
                     Principais Dores do Segmento
                   </h4>
                   <ul className="space-y-3">
                     {currentSector.dores.map((dor, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
-                        <span className="text-red-400 font-bold shrink-0">•</span>
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-relaxed font-body">
+                        <span className="text-red-500 font-bold shrink-0">•</span>
                         <span>{dor}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-red-950/30 border border-red-500/20">
-                  <h5 className="text-xs font-bold text-red-400 uppercase font-display mb-1.5">
+                <div className="p-5 rounded-2xl bg-red-50/80 border border-red-200/80 shadow-xs">
+                  <h5 className="text-xs font-bold text-red-700 uppercase font-display mb-1.5">
                     Problema Crítico Enfrentado:
                   </h5>
-                  <p className="text-xs text-red-200/90 leading-relaxed">
+                  <p className="text-xs text-red-900 leading-relaxed font-body">
                     {currentSector.problemasCriticos}
                   </p>
                 </div>
@@ -193,7 +193,7 @@ function SolutionsPage() {
                   </h4>
                   <ul className="space-y-3">
                     {currentSector.solucoes.map((sol, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-relaxed font-body">
                         <CheckCircle2 className="size-3.5 text-[#094AEB] shrink-0 mt-0.5" />
                         <span>{sol}</span>
                       </li>
@@ -201,22 +201,22 @@ function SolutionsPage() {
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-2xl glass-panel space-y-3">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-xs">
                   <div>
-                    <span className="text-[11px] font-bold text-white uppercase font-display">Exemplo Prático de Atuação:</span>
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">{currentSector.exemploPratico}</p>
+                    <span className="text-[11px] font-bold text-[#042148] uppercase font-display">Exemplo Prático de Atuação:</span>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed font-body">{currentSector.exemploPratico}</p>
                   </div>
-                  <div className="pt-3 border-t border-white/10">
+                  <div className="pt-3 border-t border-slate-200">
                     <span className="text-[11px] font-bold text-[#EE4C1B] uppercase font-display">Diferencial Percebido:</span>
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">{currentSector.diferencial}</p>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed font-body">{currentSector.diferencial}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* CTA Dentro do Card */}
-            <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs text-slate-400 font-medium">
+            <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span className="text-xs text-slate-600 font-medium font-body">
                 Deseja um projeto adaptado para a realidade do seu setor?
               </span>
               <a
