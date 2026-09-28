@@ -208,16 +208,30 @@ export function ContactBand({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-[#042148] text-white py-16 px-5 lg:px-8 border-t border-slate-800">
-      <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8">
+    <section className="relative text-white py-20 px-5 lg:px-8 border-t border-white/10 overflow-hidden bg-[#0A1226]">
+      {/* Imagem de Fundo em Parallax Suave */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <img
+          src="/CDR-Technology.png"
+          alt="Tecnologia e conectividade Dualcon"
+          className="w-full h-[140%] -translate-y-10 object-cover object-center opacity-30 animate-hero-bg"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F0F0F] via-[#042148]/90 to-[#2B2B2B]/90" />
+      </div>
+
+      {/* Feixes de luz suaves */}
+      <div className="absolute -top-20 right-10 w-96 h-96 bg-[#EE4C1B]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-20 left-10 w-96 h-96 bg-[#094AEB]/20 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="max-w-2xl">
-          <span className="rounded bg-[#EE4C1B] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white font-display">
-            Atendimento Consultivo
+          <span className="section-badge section-badge-dark mb-4">
+            ATENDIMENTO CONSULTIVO
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-white leading-tight font-display">
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight font-display">
             {title}
           </h2>
-          <p className="mt-3 text-slate-300 text-base leading-relaxed">
+          <p className="mt-3 text-slate-300 text-base leading-relaxed font-body">
             {subtitle}
           </p>
         </div>
@@ -225,24 +239,25 @@ export function ContactBand({
         <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
           <Button
             asChild
-            className="rounded-full bg-[#EE4C1B] hover:bg-[#d63d0f] text-white font-bold h-12 px-8 text-sm transition-colors font-display"
+            className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white font-bold h-14 px-8 text-sm transition-all shadow-xl shadow-[#EE4C1B]/30 hover:scale-105 font-display"
           >
             <a
               href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20diagn%C3%B3stico%20de%20TI."
               target="_blank"
               rel="noreferrer"
             >
+              <MessageSquare className="size-4 mr-2" />
               Falar com um Especialista
-              <ArrowRight className="size-4 ml-2" />
             </a>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="rounded-full border-white/30 text-white hover:bg-white hover:text-[#042148] font-bold h-12 px-8 text-sm bg-transparent transition-colors font-display"
+            className="rounded-full glass-panel hover:bg-white/20 text-white font-bold h-14 px-8 text-sm transition-all font-display border border-white/25 hover:border-white"
           >
             <Link to="/contato">
               Enviar Mensagem
+              <ArrowRight className="size-4 ml-2 text-[#094AEB]" />
             </Link>
           </Button>
         </div>

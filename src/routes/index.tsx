@@ -142,102 +142,126 @@ export function HomePage() {
 
       {/* =========================================================================
           3. VISÃO GERAL DA DUALCON: DORES, SOLUÇÕES E DIFERENCIAIS
-          Seção Clara Intercalada com Glassmorphism Claro e Linhas Tecnológicas
+          Seção Intercalada com Tom Cinza Grafite (#2B2B2B / #F4F6F9) e Paleta Oficial
          ========================================================================= */}
-      <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
+      <section className="bg-[#F4F6F9] py-24 px-5 lg:px-8 border-b border-slate-200/90 relative overflow-hidden bg-wave-lines-light">
         {/* Luzes de ambientação sutis */}
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#EE4C1B]/5 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#094AEB]/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-badge section-badge-light mb-3">
+            <span className="section-badge section-badge-graphite mb-3">
               DIAGNÓSTICO ESTRATÉGICO
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               Entendemos a realidade da sua empresa
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 font-body">
-              Transformamos dores operacionais e riscos de segurança em previsibilidade e alta disponibilidade.
+              Transformamos dores operacionais e riscos de segurança em previsibilidade, redução de custos e alta disponibilidade.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Dores */}
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-8 flex flex-col justify-between border-t-4 border-t-red-500 shadow-sm">
+            <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-red-500 group">
               <div>
-                <div className="size-12 rounded-xl bg-red-50 border border-red-200 text-red-600 flex items-center justify-center mb-6 shadow-xs">
-                  <AlertTriangle className="size-6" />
+                <div className="size-14 rounded-2xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <AlertTriangle className="size-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#042148] font-display mb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-bold tracking-wider text-red-600 uppercase font-display">Riscos Atuais</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">Atenção</span>
+                </div>
+                <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
                   Dores Críticas do Mercado
                 </h3>
-                <ul className="space-y-3.5 text-sm text-slate-700 font-body">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-500 font-bold shrink-0">•</span>
-                    <span>Quedas inesperadas de servidores parando faturamento e chão de fábrica.</span>
+                <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                    <span><strong>Quedas de Servidor:</strong> Paradas não programadas travando faturamento, expedição e ERP.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-500 font-bold shrink-0">•</span>
-                    <span>Ameaças constantes de sequestro de dados (ransomware) e roubo de senhas.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                    <span><strong>Sequestro de Dados:</strong> Ataques de ransomware que paralisam a empresa e cobram resgate milionário.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-500 font-bold shrink-0">•</span>
-                    <span>Lentidão na rede e suporte técnico robótico que demora dias para atender.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                    <span><strong>Suporte Ineficiente:</strong> Chamados lentos com atendimento impessoal e robôs sem resolução ágil.</span>
                   </li>
                 </ul>
+              </div>
+
+              <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-red-600 font-bold flex items-center gap-1.5">
+                <span>Prejuízo médio por hora parada: R$ 15.000+</span>
               </div>
             </div>
 
             {/* Nossas Soluções */}
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-8 flex flex-col justify-between border-t-4 border-t-[#094AEB] shadow-sm">
+            <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#094AEB] group">
               <div>
-                <div className="size-12 rounded-xl bg-[#094AEB]/10 border border-[#094AEB]/20 text-[#094AEB] flex items-center justify-center mb-6 shadow-xs">
-                  <Lightbulb className="size-6" />
+                <div className="size-14 rounded-2xl bg-[#094AEB]/10 border border-[#094AEB]/20 text-[#094AEB] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Lightbulb className="size-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#042148] font-display mb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-bold tracking-wider text-[#094AEB] uppercase font-display">Ação Prática</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#094AEB]">Segurança Ativa</span>
+                </div>
+                <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
                   Como a Dualcon Resolve
                 </h3>
-                <ul className="space-y-3.5 text-sm text-slate-700 font-body">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#094AEB] font-bold shrink-0">•</span>
-                    <span>Monitoramento ativo 24/7 para corrigir falhas antes que você perceba.</span>
+                <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                    <span><strong>Monitoramento Ativo 24/7:</strong> Ação preventiva corrigindo alertas antes de causarem qualquer parada.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#094AEB] font-bold shrink-0">•</span>
-                    <span>Infraestrutura robusta com servidores Dell e backup imutável Veeam em nuvem.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                    <span><strong>Infraestrutura Dell & Veeam:</strong> Servidores PowerEdge de alta tolerância e backup imutável na nuvem.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#094AEB] font-bold shrink-0">•</span>
-                    <span>Firewalls corporativos Fortinet e proteção de endpoints Bitdefender de ponta a ponta.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                    <span><strong>Fortinet & Bitdefender:</strong> Firewalls de borda e proteção de computadores contra ameaças modernas.</span>
                   </li>
                 </ul>
               </div>
+
+              <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-[#094AEB] font-bold flex items-center gap-1.5">
+                <span>Disponibilidade garantida contratual (SLA)</span>
+              </div>
             </div>
 
-            {/* Diferenciais */}
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-8 flex flex-col justify-between border-t-4 border-t-[#EE4C1B] shadow-sm">
+            {/* Diferenciais Estratégicos */}
+            <div className="rounded-3xl bg-[#2B2B2B] text-white p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#EE4C1B] group">
               <div>
-                <div className="size-12 rounded-xl bg-[#EE4C1B]/10 border border-[#EE4C1B]/20 text-[#EE4C1B] flex items-center justify-center mb-6 shadow-xs">
-                  <Sparkles className="size-6" />
+                <div className="size-14 rounded-2xl bg-white/10 border border-white/20 text-[#EE4C1B] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Sparkles className="size-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#042148] font-display mb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-bold tracking-wider text-[#EE4C1B] uppercase font-display">Vantagem Competitiva</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EE4C1B]/20 text-[#EE4C1B] border border-[#EE4C1B]/30">Exclusivo</span>
+                </div>
+                <h3 className="text-xl font-extrabold text-white font-display mb-4">
                   Nossos Diferenciais
                 </h3>
-                <ul className="space-y-3.5 text-sm text-slate-700 font-body">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#EE4C1B] font-bold shrink-0">•</span>
-                    <span><strong className="text-[#042148]">Proximidade Humana:</strong> você conhece nossos técnicos pelo nome, sem robôs.</span>
+                <ul className="space-y-4 text-xs sm:text-sm text-slate-300 font-body">
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                    <span><strong className="text-white">Proximidade Humana:</strong> Você fala diretamente com seu técnico pelo nome, presencialmente ou por WhatsApp.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#EE4C1B] font-bold shrink-0">•</span>
-                    <span><strong className="text-[#042148]">20 Anos de Mercado:</strong> sólida reputação no Vale dos Sinos e RS desde 2005.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                    <span><strong className="text-white">20 Anos de Mercado:</strong> Sólida credibilidade técnica atendendo indústrias, comércio e serviços no RS desde 2005.</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#EE4C1B] font-bold shrink-0">•</span>
-                    <span><strong className="text-[#042148]">SLA Rigoroso:</strong> atendimento presencial e remoto veloz com metas contratuais.</span>
+                  <li className="flex items-start gap-3">
+                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                    <span><strong className="text-white">Parcerias Diretas:</strong> Homologação direta com Dell, Veeam, Bitdefender, Fortinet e Microsoft.</span>
                   </li>
                 </ul>
+              </div>
+
+              <div className="mt-8 pt-5 border-t border-white/10 text-xs text-[#EE4C1B] font-bold flex items-center gap-1.5">
+                <span>Atendimento presencial no Vale dos Sinos e RS</span>
               </div>
             </div>
           </div>

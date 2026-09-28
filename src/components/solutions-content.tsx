@@ -87,32 +87,51 @@ export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
             return (
               <article
                 key={item.number}
-                className="flex flex-col justify-between rounded-2xl glass-panel glass-panel-hover p-8 relative group"
+                className="flex flex-col justify-between rounded-3xl bg-[#141A28] border border-white/10 p-8 relative group hover:border-[#094AEB]/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl shadow-black/40"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3">
-                    <div className="grid size-12 place-items-center rounded-xl bg-white/5 border border-white/10 text-white group-hover:bg-[#094AEB] group-hover:border-[#094AEB] transition-all group-hover:scale-110 shadow-lg shadow-black/20">
+                    <div className="grid size-14 place-items-center rounded-2xl bg-[#042148]/60 border border-[#094AEB]/30 text-white group-hover:bg-[#094AEB] transition-all group-hover:scale-110 shadow-lg shadow-black/30">
                       <Icon className="size-6 text-[#094AEB] group-hover:text-white transition-colors" />
                     </div>
-                    <span className="font-bold text-xs tracking-wider text-slate-400 font-display px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                      {item.number}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {item.badge && (
+                        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#EE4C1B]/20 text-[#EE4C1B] border border-[#EE4C1B]/30 font-display">
+                          {item.badge}
+                        </span>
+                      )}
+                      <span className="font-bold text-xs tracking-wider text-slate-400 font-display px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+                        {item.number}
+                      </span>
+                    </div>
                   </div>
 
-                  <span className="inline-block mt-6 text-xs font-bold uppercase tracking-wider text-[#EE4C1B] font-display">
+                  <span className="inline-block mt-6 text-[11px] font-bold uppercase tracking-wider text-[#EE4C1B] font-display">
                     {item.category}
                   </span>
-                  <h3 className="mt-1 text-xl font-bold text-white font-display group-hover:text-[#094AEB] transition-colors">
+                  <h3 className="mt-1 text-xl font-extrabold text-white font-display group-hover:text-[#094AEB] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed font-body">
+                  <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-body">
                     {item.short}
                   </p>
 
-                  <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
+                  {/* Parceiros / Tecnologias */}
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {item.partners.map((partner) => (
+                      <span
+                        key={partner}
+                        className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded-md"
+                      >
+                        {partner}
+                      </span>
+                    ))}
+                  </div>
+
+                  <ul className="mt-5 space-y-2 border-t border-white/10 pt-4">
                     {item.points.slice(0, 3).map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-xs font-medium text-slate-300">
-                        <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0 mt-0.5" />
+                      <li key={p} className="flex items-start gap-2 text-xs font-medium text-slate-300">
+                        <CheckCircle2 className="size-3.5 text-[#EE4C1B] shrink-0 mt-0.5" />
                         <span>{p}</span>
                       </li>
                     ))}
@@ -123,7 +142,7 @@ export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
                   <Link
                     to="/solucoes"
                     hash={item.id}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors group-hover:translate-x-1"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors group-hover:translate-x-1 font-display"
                   >
                     Ver detalhes
                     <ArrowRight className="size-3.5 text-[#094AEB]" />
@@ -133,9 +152,9 @@ export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
                     href={`https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20${encodeURIComponent(item.title)}.`}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white text-xs font-bold px-4 py-2 transition-all shadow-md shadow-[#EE4C1B]/20 hover:scale-105"
+                    className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white text-xs font-bold px-4 py-2 transition-all shadow-md shadow-[#EE4C1B]/20 hover:scale-105 font-display"
                   >
-                    Cotar Solução
+                    Cotar Solução ↗
                   </a>
                 </div>
               </article>

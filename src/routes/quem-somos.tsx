@@ -74,54 +74,107 @@ function AboutPage() {
       <PartnerLogosBar />
 
       {/* =========================================================================
-          2. HISTÓRIA EM ITENS (Linha do Tempo e Marcos de 20 Anos)
-          Seção Clara Intercalada com Glassmorphism Claro
+          2. HISTÓRIA EM ITENS (Timeline Conectada e Marcos de 20 Anos)
+          Seção Intercalada com Tom Cinza Grafite e Linha Conectada
          ========================================================================= */}
-      <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
+      <section className="bg-[#F4F6F9] py-24 px-5 lg:px-8 border-b border-slate-200/90 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-badge section-badge-light mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="section-badge section-badge-graphite mb-3">
               NOSSA TRAJETÓRIA
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               20 anos construindo pontes tecnológicas sólidas
             </h2>
             <p className="mt-4 text-base text-slate-600 font-body">
-              Conheça em itens como evoluímos ao lado dos maiores polos empresariais do Rio Grande do Sul.
+              Conheça em itens como evoluímos ao lado dos maiores polos industriais e comerciais do Rio Grande do Sul.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#EE4C1B] shadow-sm">
-              <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">2005</span>
-              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Fundação & Cabeamento</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
-                Início das operações em Campo Bom – RS, com foco em estruturação física de redes, servidores locais e suporte a empresas do Vale dos Sinos.
-              </p>
-            </div>
+          {/* Timeline com Linha Conectada Horizontal e Marcadores */}
+          <div className="relative timeline-track-horizontal">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 relative z-10">
+              
+              {/* Marco 1 */}
+              <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-2 transition-all duration-300 relative group">
+                <div className="absolute -top-4 left-8 size-8 rounded-full bg-[#EE4C1B] text-white flex items-center justify-center font-bold text-xs shadow-md shadow-[#EE4C1B]/30 ring-4 ring-white">
+                  1
+                </div>
+                <div>
+                  <div className="flex items-baseline justify-between mt-2 mb-4">
+                    <span className="text-4xl font-extrabold text-[#EE4C1B] font-display">2005</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">Origem</span>
+                  </div>
+                  <h3 className="text-lg font-extrabold text-[#042148] font-display">Fundação & Cabeamento</h3>
+                  <p className="mt-3 text-xs text-slate-600 leading-relaxed font-body">
+                    Início das operações em Campo Bom – RS, com foco em estruturação física de redes, servidores locais e suporte a empresas do Vale dos Sinos.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-[#EE4C1B]">
+                  Pioneirismo em Redes Físicas
+                </div>
+              </div>
 
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#094AEB] shadow-sm">
-              <span className="text-3xl font-extrabold text-[#094AEB] font-display">2012</span>
-              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Parceria Dell & Servidores</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
-                Homologação técnica oficial com a Dell Technologies, levando servidores de alta densidade e storages para indústrias e empresas de comércio exterior.
-              </p>
-            </div>
+              {/* Marco 2 */}
+              <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-2 transition-all duration-300 relative group">
+                <div className="absolute -top-4 left-8 size-8 rounded-full bg-[#094AEB] text-white flex items-center justify-center font-bold text-xs shadow-md shadow-[#094AEB]/30 ring-4 ring-white">
+                  2
+                </div>
+                <div>
+                  <div className="flex items-baseline justify-between mt-2 mb-4">
+                    <span className="text-4xl font-extrabold text-[#094AEB] font-display">2012</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">Hardware</span>
+                  </div>
+                  <h3 className="text-lg font-extrabold text-[#042148] font-display">Parceria Dell & Servidores</h3>
+                  <p className="mt-3 text-xs text-slate-600 leading-relaxed font-body">
+                    Homologação técnica oficial com a Dell Technologies, levando servidores de alta densidade PowerEdge e storages para indústrias e comércio exterior.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-[#094AEB]">
+                  Parceria Homologada Dell
+                </div>
+              </div>
 
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-slate-400 shadow-sm">
-              <span className="text-3xl font-extrabold text-slate-700 font-display">2018</span>
-              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Segurança & Nuvem</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
-                Expansão para cibersegurança avançada com Fortinet, Bitdefender e rotinas de backup Veeam em nuvem, garantindo tolerância zero a ransomware.
-              </p>
-            </div>
+              {/* Marco 3 */}
+              <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-2 transition-all duration-300 relative group">
+                <div className="absolute -top-4 left-8 size-8 rounded-full bg-[#2B2B2B] text-white flex items-center justify-center font-bold text-xs shadow-md shadow-black/30 ring-4 ring-white">
+                  3
+                </div>
+                <div>
+                  <div className="flex items-baseline justify-between mt-2 mb-4">
+                    <span className="text-4xl font-extrabold text-[#2B2B2B] font-display">2018</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full">Cyber & Cloud</span>
+                  </div>
+                  <h3 className="text-lg font-extrabold text-[#042148] font-display">Segurança & Nuvem</h3>
+                  <p className="mt-3 text-xs text-slate-600 leading-relaxed font-body">
+                    Expansão para cibersegurança avançada com Fortinet, Bitdefender e rotinas de backup Veeam em nuvem, garantindo tolerância zero a ransomware.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-slate-700">
+                  Defesa Ativa contra Ransomware
+                </div>
+              </div>
 
-            <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 border-t-4 border-t-[#EE4C1B] shadow-sm">
-              <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">Hoje</span>
-              <h3 className="mt-3 text-lg font-bold text-[#042148] font-display">Conectando o Futuro</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-body">
-                Mais de duas décadas de credibilidade técnica, integrando inteligência artificial, computação corporativa e suporte presencial humanizado.
-              </p>
+              {/* Marco 4 */}
+              <div className="rounded-3xl bg-[#2B2B2B] text-white border border-slate-800 p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group">
+                <div className="absolute -top-4 left-8 size-8 rounded-full bg-[#EE4C1B] text-white flex items-center justify-center font-bold text-xs shadow-md shadow-[#EE4C1B]/40 ring-4 ring-[#2B2B2B]">
+                  ★
+                </div>
+                <div>
+                  <div className="flex items-baseline justify-between mt-2 mb-4">
+                    <span className="text-4xl font-extrabold text-[#EE4C1B] font-display">Hoje</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-[#EE4C1B]/30 px-2 py-0.5 rounded-full border border-[#EE4C1B]/40">20 Anos</span>
+                  </div>
+                  <h3 className="text-lg font-extrabold text-white font-display">Conectando o Futuro</h3>
+                  <p className="mt-3 text-xs text-slate-300 leading-relaxed font-body">
+                    Mais de duas décadas de credibilidade técnica, integrando computação de alta disponibilidade em nuvem corporativa e suporte presencial humanizado.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10 text-[11px] font-bold text-[#EE4C1B]">
+                  Liderança e Proximidade no RS
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

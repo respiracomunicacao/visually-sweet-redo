@@ -77,70 +77,77 @@ function ContactPage() {
       {/* =========================================================================
           2. FORMULÁRIO DE CONTATO (GERAL) + DADOS (E-MAIL, TELEFONE, WHATSAPP)
          ========================================================================= */}
-      <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+      <section className="bg-[#0F0F0F] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        {/* Luzes de ambientação */}
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#EE4C1B]/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#094AEB]/10 rounded-full blur-[140px] pointer-events-none" />
+
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid gap-10 lg:grid-cols-12 items-start">
             
-            {/* Formulário Geral em Glassmorphism */}
-            <div className="lg:col-span-7 glass-panel rounded-3xl p-8 md:p-10 shadow-2xl border-t-2 border-t-[#EE4C1B]">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
+            {/* Formulário Geral em Card Grafite de Alta Fidelidade */}
+            <div className="lg:col-span-7 bg-[#1A1A1E] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl border-t-4 border-t-[#EE4C1B]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#EE4C1B] font-display">
+                Canal Oficial
+              </span>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-white font-display">
                 Envie sua Mensagem
               </h2>
-              <p className="mt-2 text-xs text-slate-300 font-body">
-                Preencha os campos para falar diretamente com nosso time consultivo e técnico.
+              <p className="mt-2 text-xs sm:text-sm text-slate-300 font-body">
+                Preencha os campos para falar diretamente com nosso time consultivo e técnico no RS.
               </p>
 
               {submitted ? (
-                <div className="mt-6 rounded-2xl glass-panel p-8 text-center border-emerald-500/40">
-                  <CheckCircle2 className="size-12 text-emerald-400 mx-auto mb-3" />
-                  <p className="font-bold text-lg text-white font-display">Mensagem Enviada!</p>
-                  <p className="text-xs text-slate-300 mt-1">Sua solicitação foi direcionada diretamente para o WhatsApp da Dualcon.</p>
+                <div className="mt-8 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 p-8 text-center">
+                  <CheckCircle2 className="size-14 text-emerald-400 mx-auto mb-3" />
+                  <p className="font-bold text-xl text-white font-display">Mensagem Enviada!</p>
+                  <p className="text-xs text-slate-300 mt-2">Sua solicitação foi direcionada diretamente para o WhatsApp da Dualcon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 font-display">Nome Completo *</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 font-display">Nome Completo *</label>
                     <input
                       type="text"
                       required
-                      placeholder="Seu nome"
+                      placeholder="Ex: Carlos Eduardo"
                       value={form.nome}
                       onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-[#094AEB] focus:bg-white/10 focus:outline-none transition-all"
+                      className="w-full rounded-xl bg-[#24242A] border border-white/10 px-4 py-3.5 text-sm text-white placeholder-slate-400 focus:border-[#094AEB] focus:bg-[#282830] focus:outline-none transition-all"
                     />
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 font-display">E-mail Corporativo *</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 font-display">E-mail Corporativo *</label>
                       <input
                         type="email"
                         required
                         placeholder="seu@empresa.com.br"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-[#094AEB] focus:bg-white/10 focus:outline-none transition-all"
+                        className="w-full rounded-xl bg-[#24242A] border border-white/10 px-4 py-3.5 text-sm text-white placeholder-slate-400 focus:border-[#094AEB] focus:bg-[#282830] focus:outline-none transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 font-display">Telefone / WhatsApp *</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 font-display">Telefone / WhatsApp *</label>
                       <input
                         type="tel"
                         required
                         placeholder="(51) 99999-9999"
                         value={form.telefone}
                         onChange={(e) => setForm({ ...form, telefone: e.target.value })}
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-[#094AEB] focus:bg-white/10 focus:outline-none transition-all"
+                        className="w-full rounded-xl bg-[#24242A] border border-white/10 px-4 py-3.5 text-sm text-white placeholder-slate-400 focus:border-[#094AEB] focus:bg-[#282830] focus:outline-none transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 font-display">Assunto Principal *</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 font-display">Assunto Principal *</label>
                     <select
                       value={form.assunto}
                       onChange={(e) => setForm({ ...form, assunto: e.target.value })}
-                      className="w-full rounded-xl bg-[#0A1226] border border-white/10 px-4 py-3 text-sm text-white focus:border-[#094AEB] focus:outline-none transition-all"
+                      className="w-full rounded-xl bg-[#24242A] border border-white/10 px-4 py-3.5 text-sm text-white focus:border-[#094AEB] focus:outline-none transition-all"
                     >
                       <option value="Consultoria e Suporte TI">Consultoria e Suporte TI</option>
                       <option value="Equipamentos e Servidores Dell">Equipamentos e Servidores Dell</option>
@@ -152,20 +159,20 @@ function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 font-display">Como podemos ajudar? *</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 font-display">Como podemos ajudar? *</label>
                     <textarea
                       rows={5}
                       required
                       placeholder="Descreva brevemente a infraestrutura atual ou demanda da sua empresa..."
                       value={form.mensagem}
                       onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-[#094AEB] focus:bg-white/10 focus:outline-none transition-all"
+                      className="w-full rounded-xl bg-[#24242A] border border-white/10 px-4 py-3.5 text-sm text-white placeholder-slate-400 focus:border-[#094AEB] focus:bg-[#282830] focus:outline-none transition-all"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white font-bold h-14 text-sm transition-all cursor-pointer font-display shadow-xl shadow-[#EE4C1B]/25 hover:scale-105"
+                    className="w-full rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white font-bold h-14 text-sm transition-all cursor-pointer font-display shadow-xl shadow-[#EE4C1B]/25 hover:scale-102"
                   >
                     Enviar Mensagem no WhatsApp
                     <Send className="size-4 ml-2" />
@@ -174,16 +181,16 @@ function ContactPage() {
               )}
             </div>
 
-            {/* Dados Diretos de Atendimento em Glassmorphism */}
+            {/* Dados Diretos de Atendimento em Cards de Alta Nitidez */}
             <div className="lg:col-span-5 space-y-4">
               {/* WhatsApp Card */}
-              <div className="glass-panel rounded-2xl p-6 shadow-xl">
+              <div className="bg-[#1A1A1E] border border-white/10 rounded-3xl p-6 shadow-xl hover:border-emerald-500/50 transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-emerald-500/20 text-[#25d366] border border-emerald-500/30">
-                    <MessageSquare className="size-5 fill-current" />
+                  <div className="grid size-14 place-items-center rounded-2xl bg-emerald-500/20 text-[#25d366] border border-emerald-500/30">
+                    <MessageSquare className="size-6 fill-current" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">WhatsApp Corporativo</p>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-display">WhatsApp Corporativo</p>
                     <p className="text-xl font-extrabold text-white font-display">+55 (51) 99332-1591</p>
                   </div>
                 </div>
@@ -191,34 +198,34 @@ function ContactPage() {
                   href="https://wa.me/5551993321591"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-5 block w-full rounded-full bg-[#25d366] hover:bg-[#20ba59] text-white font-bold text-center py-3 text-xs transition-transform font-display shadow-lg shadow-emerald-500/20 hover:scale-105"
+                  className="mt-5 block w-full rounded-full bg-[#25d366] hover:bg-[#20ba59] text-white font-bold text-center py-3 text-xs transition-transform font-display shadow-lg shadow-emerald-500/20 hover:scale-102"
                 >
                   Abrir conversa no WhatsApp ↗
                 </a>
               </div>
 
               {/* Telefone Fixo */}
-              <div className="glass-panel rounded-2xl p-6 shadow-xl">
+              <div className="bg-[#1A1A1E] border border-white/10 rounded-3xl p-6 shadow-xl hover:border-[#094AEB]/50 transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-[#094AEB]/20 border border-[#094AEB]/30 text-[#094AEB]">
-                    <Phone className="size-5" />
+                  <div className="grid size-14 place-items-center rounded-2xl bg-[#094AEB]/20 border border-[#094AEB]/30 text-[#094AEB]">
+                    <Phone className="size-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Central Telefônica</p>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-display">Central Telefônica</p>
                     <p className="text-xl font-extrabold text-white font-display">+55 (51) 3593-5437</p>
                   </div>
                 </div>
               </div>
 
               {/* E-mail */}
-              <div className="glass-panel rounded-2xl p-6 shadow-xl">
+              <div className="bg-[#1A1A1E] border border-white/10 rounded-3xl p-6 shadow-xl hover:border-[#EE4C1B]/50 transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-white/10 border border-white/20 text-white">
-                    <Mail className="size-5" />
+                  <div className="grid size-14 place-items-center rounded-2xl bg-white/10 border border-white/20 text-white">
+                    <Mail className="size-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">E-mail de Contato</p>
-                    <a href="mailto:comercial@d2c.net.br" className="text-sm font-bold text-[#EE4C1B] hover:underline font-display">
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-display">E-mail de Contato</p>
+                    <a href="mailto:comercial@d2c.net.br" className="text-base font-bold text-[#EE4C1B] hover:underline font-display">
                       comercial@d2c.net.br
                     </a>
                   </div>
@@ -226,18 +233,18 @@ function ContactPage() {
               </div>
 
               {/* Endereço */}
-              <div className="glass-panel rounded-2xl p-6 shadow-xl">
+              <div className="bg-[#1A1A1E] border border-white/10 rounded-3xl p-6 shadow-xl">
                 <div className="flex items-start gap-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-[#EE4C1B]/20 border border-[#EE4C1B]/30 text-[#EE4C1B] shrink-0">
-                    <MapPin className="size-5" />
+                  <div className="grid size-14 place-items-center rounded-2xl bg-[#EE4C1B]/20 border border-[#EE4C1B]/30 text-[#EE4C1B] shrink-0">
+                    <MapPin className="size-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sede Dualcon</p>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-display">Sede Dualcon</p>
                     <p className="text-sm font-semibold text-slate-200 leading-snug mt-1 font-body">
                       Av. Carlos Strassburger Filho, 5796 – Pavilhão H <br />
                       Campo Bom – RS • CEP 93700-000
                     </p>
-                    <p className="text-xs text-slate-400 mt-2">Horário: Seg a Sex das 08h às 18h</p>
+                    <p className="text-xs text-slate-400 mt-2 font-body">Horário: Seg a Sex das 08h às 18h</p>
                   </div>
                 </div>
               </div>

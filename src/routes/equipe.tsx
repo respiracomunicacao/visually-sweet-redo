@@ -101,7 +101,7 @@ function TeamPage() {
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl glass-panel glass-panel-hover overflow-hidden flex flex-col justify-between group"
+                className="rounded-3xl bg-[#141A28] border border-white/10 overflow-hidden flex flex-col justify-between group hover:border-[#094AEB]/60 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-black/40"
               >
                 <div>
                   <div className="aspect-[4/3] bg-slate-900 overflow-hidden relative">
@@ -110,22 +110,34 @@ function TeamPage() {
                       alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1226] via-transparent to-transparent opacity-80" />
-                  </div>
-                  <div className="p-6">
-                    <span className="text-[11px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141A28] via-transparent to-transparent opacity-90" />
+                    <span className="absolute top-3 left-3 text-[10px] font-bold text-white uppercase tracking-wider font-display px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15">
                       {member.department}
                     </span>
-                    <h3 className="mt-1 text-lg font-bold text-white font-display">
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-extrabold text-white font-display group-hover:text-[#EE4C1B] transition-colors">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-semibold text-[#094AEB] mt-0.5">
+                    <p className="text-xs font-semibold text-[#094AEB] mt-1 font-display">
                       {member.role}
                     </p>
                     <p className="mt-3 text-xs text-slate-300 leading-relaxed font-body">
                       {member.description}
                     </p>
                   </div>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <a
+                    href={`https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20setor%20de%20${encodeURIComponent(member.department)}%20(${encodeURIComponent(member.name)}).`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full rounded-full bg-emerald-500/10 hover:bg-[#25d366] text-[#25d366] hover:text-white border border-emerald-500/30 text-xs font-bold py-3 px-4 flex items-center justify-center gap-2 transition-all font-display hover:scale-102"
+                  >
+                    <MessageSquare className="size-3.5 fill-current" />
+                    <span>WhatsApp Direto ↗</span>
+                  </a>
                 </div>
               </div>
             ))}
