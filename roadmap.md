@@ -1,0 +1,3 @@
+- [x] Remodelar as páginas Início, Quem Somos, Soluções, Novidades e Contato com a direção escolhida.
+- [x] Preservar serviços, publicações e informações comerciais verificadas no site atual.
+- [ ] Verificar navegação, aparência em desktop/mobile e erros da prévia.

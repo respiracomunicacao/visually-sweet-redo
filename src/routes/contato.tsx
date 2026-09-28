@@ -1,0 +1,17 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { ArrowUpRight, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export const Route = createFileRoute('/contato')({ head: () => ({ meta: [
+  { title: 'Contato | Dualcon Conectividade' },
+  { name: 'description', content: 'Fale com a Dualcon por WhatsApp ou telefone. Estamos em Campo Bom, no Vale dos Sinos, RS.' },
+  { property: 'og:title', content: 'Contato | Dualcon Conectividade' },
+  { property: 'og:description', content: 'Entre em contato com a equipe da Dualcon para conversar sobre sua infraestrutura de TI.' },
+  { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
+] }), component: ContactPage });
+
+function ContactPage() { return <><section className="atmospheric mx-auto max-w-7xl px-5 pb-16 pt-20 lg:px-8"><p className="text-sm font-semibold uppercase text-highlight">Contato</p><h1 className="mt-5 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">Sua próxima conversa sobre TI <span className="brand-gradient-text">começa aqui.</span></h1><p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Fale com a nossa equipe sobre os desafios de tecnologia da sua empresa.</p></section><section className="mx-auto grid max-w-7xl gap-5 px-5 pb-24 md:grid-cols-3 lg:px-8"><div className="rounded-lg border border-border bg-card/60 p-7"><MessageCircle className="size-7 text-highlight"/><h2 className="mt-6 text-xl font-semibold">WhatsApp</h2><p className="mt-2 text-muted-foreground">(51) 99332-1591</p><Button variant="hero" size="pill" asChild className="mt-8"><a href="https://wa.me/5551993321591" target="_blank" rel="noreferrer">Iniciar conversa <ArrowUpRight/></a></Button></div><div className="rounded-lg border border-border bg-card/60 p-7"><Phone className="size-7 text-highlight"/><h2 className="mt-6 text-xl font-semibold">Telefone</h2><p className="mt-2 text-muted-foreground">(51) 3593-5437</p><Button variant="glass" size="pill" asChild className="mt-8"><a href="tel:+555135935437">Ligar agora <ArrowUpRight/></a></Button></div><div className="rounded-lg border border-border bg-card/60 p-7"><MapPin className="size-7 text-highlight"/><h2 className="mt-6 text-xl font-semibold">Onde estamos</h2><p className="mt-2 leading-relaxed text-muted-foreground">Avenida Carlos Strassburger Filho, 5796 – H<br/>Campo Bom, RS</p><Button variant="glass" size="pill" asChild className="mt-6"><a href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Strassburger+Filho+5796+H+Campo+Bom+RS" target="_blank" rel="noreferrer">Ver no mapa <ArrowUpRight/></a></Button></div></section><section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><div className="border-t border-border pt-10"><p className="text-sm font-semibold uppercase text-highlight">Acompanhe a Dualcon</p><div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">{[
+  ['Instagram','https://www.instagram.com/dualcon_conectividade/'],
+  ['Facebook','https://www.facebook.com/dualcond2c/'],
+  ['LinkedIn','https://www.linkedin.com/company/dualcon-conectividade-4309b7127/'],
+].map(([label,url]) => <a key={label} href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-muted-foreground hover:text-highlight">{label}<ArrowUpRight className="size-4"/></a>)}</div></div></section></>; }
