@@ -201,8 +201,8 @@ export function FloatingWhatsAppButton() {
 }
 
 export function ContactBand({
-  title = 'Conectando o agora ao futuro da sua empresa.',
-  subtitle = 'Converse com nossos especialistas e descubra como uma infraestrutura de TI sólida, segura e gerenciada transforma sua operação.',
+  title = 'Pronto para elevar a infraestrutura de TI da sua empresa?',
+  subtitle = 'Converse com nossos especialistas e descubra como uma infraestrutura sólida, segura e gerenciada transforma sua operação.',
 }: {
   title?: string;
   subtitle?: string;

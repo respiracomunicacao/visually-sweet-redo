@@ -15,14 +15,15 @@ import {
 } from 'lucide-react';
 import { ContactBand, InstagramFeedWidget } from '@/components/site-shell';
 import { SolutionsGrid, PartnerLogosBar } from '@/components/solutions-content';
+import { ScrollReveal } from '@/components/scroll-reveal';
 import { news, testimonials, solutions } from '@/lib/site-content';
 
 export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
-      { title: 'Dualcon Conectividade | Conectando o agora ao futuro' },
+      { title: 'Dualcon Conectividade | Soluções Corporativas em TI' },
       { name: 'description', content: 'Soluções corporativas em conectividade, consultoria e suporte em TI, segurança e equipamentos Dell no RS.' },
-      { property: 'og:title', content: 'Dualcon Conectividade | Conectando o agora ao futuro' },
+      { property: 'og:title', content: 'Dualcon Conectividade | Soluções Corporativas em TI' },
       { property: 'og:type', content: 'website' },
     ],
   }),
@@ -78,11 +79,11 @@ export function HomePage() {
         />
 
         <div className="relative z-10 mx-auto max-w-5xl text-center space-y-8">
-          {/* Badge Oficial sem tags (< >) no estilo clean do Instagram */}
+          {/* Badge Oficial Limpo no estilo minimalista do Instagram */}
           <div className="inline-flex items-center gap-2 rounded-full glass-panel px-5 py-2 text-xs font-bold text-slate-200 shadow-xl border border-white/20">
             <span className="size-2 rounded-full bg-[#EE4C1B] animate-ping" />
             <span className="font-display tracking-widest text-[#F8FAFC]">
-              CONECTANDO O AGORA AO <em className="text-[#EE4C1B] not-italic">FUTURO</em>
+              SOLUÇÕES CORPORATIVAS EM INFRAESTRUTURA DE TI
             </span>
           </div>
 
@@ -137,6 +138,7 @@ export function HomePage() {
 
       {/* =========================================================================
           2. PARCEIROS HOMOLOGADOS COM LOGOS OFICIAIS (Dell, Veeam, Fortinet...)
+          (Exibido exclusivamente na Home conforme solicitado)
          ========================================================================= */}
       <PartnerLogosBar />
 
@@ -150,161 +152,171 @@ export function HomePage() {
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#094AEB]/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="mx-auto max-w-7xl relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-badge section-badge-graphite mb-3">
-              DIAGNÓSTICO ESTRATÉGICO
-            </span>
-            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
-              Entendemos a realidade da sua empresa
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 font-body">
-              Transformamos dores operacionais e riscos de segurança em previsibilidade, redução de custos e alta disponibilidade.
-            </p>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="section-badge section-badge-graphite mb-3">
+                DIAGNÓSTICO ESTRATÉGICO
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
+                Entendemos a realidade da sua empresa
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-slate-600 font-body">
+                Transformamos dores operacionais e riscos de segurança em previsibilidade, redução de custos e alta disponibilidade.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Dores */}
-            <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-red-500 group">
-              <div>
-                <div className="size-14 rounded-2xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <AlertTriangle className="size-7" />
+            <ScrollReveal direction="up" delay={100}>
+              <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-red-500 group h-full">
+                <div>
+                  <div className="size-14 rounded-2xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <AlertTriangle className="size-7" />
+                  </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold tracking-wider text-red-600 uppercase font-display">Riscos Atuais</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">Atenção</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
+                    Dores Críticas do Mercado
+                  </h3>
+                  <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                      <span><strong>Quedas de Servidor:</strong> Paradas não programadas travando faturamento, expedição e ERP.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                      <span><strong>Sequestro de Dados:</strong> Ataques de ransomware que paralisam a empresa e cobram resgate milionário.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                      <span><strong>Suporte Ineficiente:</strong> Chamados lentos com atendimento impessoal e robôs sem resolução ágil.</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold tracking-wider text-red-600 uppercase font-display">Riscos Atuais</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">Atenção</span>
-                </div>
-                <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
-                  Dores Críticas do Mercado
-                </h3>
-                <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                    <span><strong>Quedas de Servidor:</strong> Paradas não programadas travando faturamento, expedição e ERP.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                    <span><strong>Sequestro de Dados:</strong> Ataques de ransomware que paralisam a empresa e cobram resgate milionário.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                    <span><strong>Suporte Ineficiente:</strong> Chamados lentos com atendimento impessoal e robôs sem resolução ágil.</span>
-                  </li>
-                </ul>
-              </div>
 
-              <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-red-600 font-bold flex items-center gap-1.5">
-                <span>Prejuízo médio por hora parada: R$ 15.000+</span>
+                <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-red-600 font-bold flex items-center gap-1.5">
+                  <span>Prejuízo médio por hora parada: R$ 15.000+</span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Nossas Soluções */}
-            <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#094AEB] group">
-              <div>
-                <div className="size-14 rounded-2xl bg-[#094AEB]/10 border border-[#094AEB]/20 text-[#094AEB] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Lightbulb className="size-7" />
+            <ScrollReveal direction="up" delay={200}>
+              <div className="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-lg shadow-black/5 hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#094AEB] group h-full">
+                <div>
+                  <div className="size-14 rounded-2xl bg-[#094AEB]/10 border border-[#094AEB]/20 text-[#094AEB] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Lightbulb className="size-7" />
+                  </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold tracking-wider text-[#094AEB] uppercase font-display">Ação Prática</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#094AEB]">Segurança Ativa</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
+                    Como a Dualcon Resolve
+                  </h3>
+                  <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                      <span><strong>Monitoramento Ativo 24/7:</strong> Ação preventiva corrigindo alertas antes de causarem qualquer parada.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                      <span><strong>Infraestrutura Dell & Veeam:</strong> Servidores PowerEdge de alta tolerância e backup imutável na nuvem.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
+                      <span><strong>Fortinet & Bitdefender:</strong> Firewalls de borda e proteção de computadores contra ameaças modernas.</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold tracking-wider text-[#094AEB] uppercase font-display">Ação Prática</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#094AEB]">Segurança Ativa</span>
-                </div>
-                <h3 className="text-xl font-extrabold text-[#042148] font-display mb-4">
-                  Como a Dualcon Resolve
-                </h3>
-                <ul className="space-y-4 text-xs sm:text-sm text-slate-600 font-body">
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
-                    <span><strong>Monitoramento Ativo 24/7:</strong> Ação preventiva corrigindo alertas antes de causarem qualquer parada.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
-                    <span><strong>Infraestrutura Dell & Veeam:</strong> Servidores PowerEdge de alta tolerância e backup imutável na nuvem.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#094AEB] shrink-0 mt-1.5" />
-                    <span><strong>Fortinet & Bitdefender:</strong> Firewalls de borda e proteção de computadores contra ameaças modernas.</span>
-                  </li>
-                </ul>
-              </div>
 
-              <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-[#094AEB] font-bold flex items-center gap-1.5">
-                <span>Disponibilidade garantida contratual (SLA)</span>
+                <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-[#094AEB] font-bold flex items-center gap-1.5">
+                  <span>Disponibilidade garantida contratual (SLA)</span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Diferenciais Estratégicos */}
-            <div className="rounded-3xl bg-[#2B2B2B] text-white p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#EE4C1B] group">
-              <div>
-                <div className="size-14 rounded-2xl bg-white/10 border border-white/20 text-[#EE4C1B] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Sparkles className="size-7" />
+            <ScrollReveal direction="up" delay={300}>
+              <div className="rounded-3xl bg-[#2B2B2B] text-white p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border-t-4 border-t-[#EE4C1B] group h-full">
+                <div>
+                  <div className="size-14 rounded-2xl bg-white/10 border border-white/20 text-[#EE4C1B] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Sparkles className="size-7" />
+                  </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold tracking-wider text-[#EE4C1B] uppercase font-display">Vantagem Competitiva</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EE4C1B]/20 text-[#EE4C1B] border border-[#EE4C1B]/30">Exclusivo</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white font-display mb-4">
+                    Nossos Diferenciais
+                  </h3>
+                  <ul className="space-y-4 text-xs sm:text-sm text-slate-300 font-body">
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                      <span><strong className="text-white">Proximidade Humana:</strong> Você fala diretamente com seu técnico pelo nome, presencialmente ou por WhatsApp.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                      <span><strong className="text-white">20 Anos de Mercado:</strong> Sólida credibilidade técnica atendendo indústrias, comércio e serviços no RS desde 2005.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
+                      <span><strong className="text-white">Parcerias Diretas:</strong> Homologação direta com Dell, Veeam, Bitdefender, Fortinet e Microsoft.</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold tracking-wider text-[#EE4C1B] uppercase font-display">Vantagem Competitiva</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EE4C1B]/20 text-[#EE4C1B] border border-[#EE4C1B]/30">Exclusivo</span>
-                </div>
-                <h3 className="text-xl font-extrabold text-white font-display mb-4">
-                  Nossos Diferenciais
-                </h3>
-                <ul className="space-y-4 text-xs sm:text-sm text-slate-300 font-body">
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
-                    <span><strong className="text-white">Proximidade Humana:</strong> Você fala diretamente com seu técnico pelo nome, presencialmente ou por WhatsApp.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
-                    <span><strong className="text-white">20 Anos de Mercado:</strong> Sólida credibilidade técnica atendendo indústrias, comércio e serviços no RS desde 2005.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="size-2 rounded-full bg-[#EE4C1B] shrink-0 mt-1.5" />
-                    <span><strong className="text-white">Parcerias Diretas:</strong> Homologação direta com Dell, Veeam, Bitdefender, Fortinet e Microsoft.</span>
-                  </li>
-                </ul>
-              </div>
 
-              <div className="mt-8 pt-5 border-t border-white/10 text-xs text-[#EE4C1B] font-bold flex items-center gap-1.5">
-                <span>Atendimento presencial no Vale dos Sinos e RS</span>
+                <div className="mt-8 pt-5 border-t border-white/10 text-xs text-[#EE4C1B] font-bold flex items-center gap-1.5">
+                  <span>Atendimento presencial no Vale dos Sinos e RS</span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          4. VÍDEO OFICIAL DA DUALCON APRESENTANDO A EMPRESA
+          4. VÍDEO INSTITUCIONAL DA DUALCON
          ========================================================================= */}
       <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
-        <div className="mx-auto max-w-4xl text-center space-y-6 relative z-10">
-          <div className="flex justify-center">
-            <span className="section-badge section-badge-dark">
-              APRESENTAÇÃO INSTITUCIONAL
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
-            Conheça a estrutura da Dualcon Conectividade
-          </h2>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Assista ao vídeo institucional que apresenta nossa missão, equipe e compromisso com o crescimento do seu negócio:
-          </p>
+        <ScrollReveal direction="up">
+          <div className="mx-auto max-w-4xl text-center space-y-6 relative z-10">
+            <div className="flex justify-center">
+              <span className="section-badge section-badge-dark">
+                APRESENTAÇÃO INSTITUCIONAL
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
+              Conheça a estrutura da Dualcon Conectividade
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Assista ao vídeo institucional que apresenta nossa missão, equipe e compromisso com o crescimento do seu negócio:
+            </p>
 
-          <div className="rounded-2xl overflow-hidden glass-panel p-2 shadow-2xl aspect-video bg-black mx-auto max-w-3xl">
-            <iframe
-              className="w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed/mTUQ1d1oXi4"
-              title="Somos a Dualcon Conectividade"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+            <div className="rounded-2xl overflow-hidden glass-panel p-2 shadow-2xl aspect-video bg-black mx-auto max-w-3xl">
+              <iframe
+                className="w-full h-full rounded-xl"
+                src="https://www.youtube.com/embed/mTUQ1d1oXi4"
+                title="Somos a Dualcon Conectividade"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
 
-          <div className="pt-4">
-            <Link
-              to="/quem-somos"
-              className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#094AEB] font-display transition-colors"
-            >
-              Conhecer a história completa da empresa
-              <ArrowRight className="size-4 text-[#EE4C1B]" />
-            </Link>
+            <div className="pt-4">
+              <Link
+                to="/quem-somos"
+                className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#094AEB] font-display transition-colors"
+              >
+                Conhecer a história completa da empresa
+                <ArrowRight className="size-4 text-[#EE4C1B]" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* =========================================================================
@@ -318,38 +330,39 @@ export function HomePage() {
          ========================================================================= */}
       <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-badge section-badge-light mb-3">
-              CREDIBILIDADE & CONFIANÇA
-            </span>
-            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
-              O que dizem os clientes da Dualcon
-            </h2>
-            <p className="mt-4 text-base text-slate-600 font-body">
-              Relações duradouras construídas com transparência, agilidade técnica e compromisso real.
-            </p>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="section-badge section-badge-light mb-3">
+                CREDIBILIDADE & CONFIANÇA
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
+                O que dizem os clientes da Dualcon
+              </h2>
+              <p className="mt-4 text-base text-slate-600 font-body">
+                Relações duradouras construídas com transparência, agilidade técnica e compromisso real.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {testimonials.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 flex flex-col justify-between shadow-xs"
-              >
-                <div>
-                  <Quote className="size-8 text-[#094AEB] mb-4 opacity-80" />
-                  <p className="text-xs text-slate-700 leading-relaxed italic font-body">
-                    "{item.quote}"
-                  </p>
+              <ScrollReveal key={idx} direction="up" delay={idx * 120}>
+                <div className="rounded-2xl glass-panel-light glass-panel-light-hover p-7 flex flex-col justify-between shadow-xs h-full">
+                  <div>
+                    <Quote className="size-8 text-[#094AEB] mb-4 opacity-80" />
+                    <p className="text-xs text-slate-700 leading-relaxed italic font-body">
+                      "{item.quote}"
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-slate-200">
+                    <p className="text-xs font-bold text-[#042148] font-display">{item.author}</p>
+                    <p className="text-[11px] text-slate-500 font-body">{item.role}</p>
+                    <span className="inline-block mt-2 rounded-full bg-slate-100 border border-slate-200 px-2.5 py-1 text-[10px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
+                      {item.company}
+                    </span>
+                  </div>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-200">
-                  <p className="text-xs font-bold text-[#042148] font-display">{item.author}</p>
-                  <p className="text-[11px] text-slate-500 font-body">{item.role}</p>
-                  <span className="inline-block mt-2 rounded-full bg-slate-100 border border-slate-200 px-2.5 py-1 text-[10px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
-                    {item.company}
-                  </span>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -360,52 +373,53 @@ export function HomePage() {
          ========================================================================= */}
       <section className="bg-[#070D1E] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden bg-wave-lines">
         <div className="mx-auto max-w-7xl relative z-10">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14 pb-6 border-b border-white/10">
-            <div>
-              <span className="section-badge section-badge-dark mb-2">
-                CONTEÚDO & ATUALIZAÇÕES
-              </span>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-display">
-                Blog da Dualcon
-              </h2>
+          <ScrollReveal direction="up">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14 pb-6 border-b border-white/10">
+              <div>
+                <span className="section-badge section-badge-dark mb-2">
+                  CONTEÚDO & ATUALIZAÇÕES
+                </span>
+                <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-display">
+                  Blog da Dualcon
+                </h2>
+              </div>
+              <Link
+                to="/novidades"
+                className="text-xs font-bold text-slate-300 hover:text-white inline-flex items-center gap-1.5 font-display transition-colors"
+              >
+                Ver todas as postagens <span className="text-[#EE4C1B]">↗</span>
+              </Link>
             </div>
-            <Link
-              to="/novidades"
-              className="text-xs font-bold text-slate-300 hover:text-white inline-flex items-center gap-1.5 font-display transition-colors"
-            >
-              Ver todas as postagens <span className="text-[#EE4C1B]">↗</span>
-            </Link>
-          </div>
+          </ScrollReveal>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {news.slice(0, 3).map((item) => (
-              <article
-                key={item.title}
-                className="group flex flex-col justify-between rounded-2xl glass-panel glass-panel-hover p-7"
-              >
-                <div>
-                  <span className="text-[11px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-2 text-lg font-bold text-white group-hover:text-[#094AEB] transition-colors leading-snug font-display">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-xs text-slate-300 line-clamp-3 leading-relaxed font-body">
-                    {item.summary}
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400">{item.date}</span>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-bold text-white group-hover:text-[#094AEB] inline-flex items-center gap-1 font-display"
-                  >
-                    Ler artigo ↗
-                  </a>
-                </div>
-              </article>
+            {news.slice(0, 3).map((item, idx) => (
+              <ScrollReveal key={item.title} direction="up" delay={idx * 150}>
+                <article className="group flex flex-col justify-between rounded-2xl glass-panel glass-panel-hover p-7 h-full">
+                  <div>
+                    <span className="text-[11px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
+                      {item.category}
+                    </span>
+                    <h3 className="mt-2 text-lg font-bold text-white group-hover:text-[#094AEB] transition-colors leading-snug font-display">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-xs text-slate-300 line-clamp-3 leading-relaxed font-body">
+                      {item.summary}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-400">{item.date}</span>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-bold text-white group-hover:text-[#094AEB] inline-flex items-center gap-1 font-display"
+                    >
+                      Ler artigo ↗
+                    </a>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
