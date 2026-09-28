@@ -34,21 +34,21 @@ export const partnerLogosData = [
 
 export function PartnerLogosBar() {
   return (
-    <section className="bg-white border-y border-slate-200 py-10">
+    <section className="bg-[#040916] border-y border-white/5 py-12 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-wider text-slate-500 mb-8 font-display">
-          Parceiros Tecnológicos Homologados
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 font-display flex items-center justify-center gap-2">
+          <span className="text-[#094AEB]">&lt;</span> PARCEIROS TECNOLÓGICOS HOMOLOGADOS <span className="text-[#EE4C1B]">&gt;</span>
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {partnerLogosData.map((brand) => (
             <div
               key={brand.name}
-              className="flex items-center justify-center p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-[#094AEB] hover:bg-white transition-all h-20"
+              className="flex items-center justify-center p-4 rounded-xl glass-panel glass-panel-hover h-20 group"
             >
               <img
                 src={brand.logo}
                 alt={brand.alt}
-                className="max-h-8 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100"
+                className="max-h-8 max-w-[120px] object-contain filter brightness-90 group-hover:brightness-110 group-hover:scale-105 transition-all opacity-85 group-hover:opacity-100"
               />
             </div>
           ))}
@@ -60,17 +60,21 @@ export function PartnerLogosBar() {
 
 export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
   return (
-    <section id="portfolio" className="bg-[#f8fafc] py-20 px-5 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-            Nossas Especialidades
+    <section id="portfolio" className="bg-[#060B18] py-24 px-5 lg:px-8 relative overflow-hidden">
+      {/* Glow de fundo */}
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#094AEB]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+            <span className="text-[#094AEB]">&lt;</span> ESPECIALIDADES & INFRAESTRUTURA <span className="text-[#EE4C1B]">&gt;</span>
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+          <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
             Soluções Completas em Conectividade e TI
           </h2>
-          <p className="mt-3 text-base text-slate-600">
-            Da infraestrutura física e servidores dedicados à proteção em nuvem e suporte diário.
+          <p className="mt-4 text-base sm:text-lg text-slate-400">
+            Da segurança cibernética avançada com backup em nuvem à implantação de servidores de alta performance.
           </p>
         </div>
 
@@ -81,53 +85,53 @@ export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
             return (
               <article
                 key={item.number}
-                className="flex flex-col justify-between rounded-xl bg-white border border-slate-200 p-8 shadow-xs hover:shadow-md hover:border-[#094AEB] transition-all group"
+                className="flex flex-col justify-between rounded-2xl glass-panel glass-panel-hover p-8 relative group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3">
-                    <div className="grid size-12 place-items-center rounded-lg bg-slate-100 text-[#042148] group-hover:bg-[#042148] group-hover:text-white transition-colors">
-                      <Icon className="size-6" />
+                    <div className="grid size-12 place-items-center rounded-xl bg-white/5 border border-white/10 text-white group-hover:bg-[#094AEB] group-hover:border-[#094AEB] transition-all group-hover:scale-110 shadow-lg shadow-black/20">
+                      <Icon className="size-6 text-[#094AEB] group-hover:text-white transition-colors" />
                     </div>
-                    <span className="font-bold text-sm text-slate-400 font-display">
+                    <span className="font-bold text-xs tracking-wider text-slate-400 font-display px-3 py-1 rounded-full bg-white/5 border border-white/10">
                       {item.number}
                     </span>
                   </div>
 
-                  <span className="inline-block mt-6 text-xs font-bold uppercase tracking-wider text-[#EE4C1B]">
+                  <span className="inline-block mt-6 text-xs font-bold uppercase tracking-wider text-[#EE4C1B] font-display">
                     {item.category}
                   </span>
-                  <h3 className="mt-1 text-xl font-bold text-[#042148] font-display group-hover:text-[#094AEB] transition-colors">
+                  <h3 className="mt-1 text-xl font-bold text-white font-display group-hover:text-[#094AEB] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-3 text-sm text-slate-300 leading-relaxed font-body">
                     {item.short}
                   </p>
 
-                  <ul className="mt-6 space-y-2 border-t border-slate-100 pt-5">
+                  <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
                     {item.points.slice(0, 3).map((p) => (
-                      <li key={p} className="flex items-start gap-2 text-xs font-medium text-slate-600">
-                        <CheckCircle2 className="size-4 text-[#094AEB] shrink-0 mt-0.5" />
+                      <li key={p} className="flex items-start gap-2.5 text-xs font-medium text-slate-300">
+                        <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0 mt-0.5" />
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
+                <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between">
                   <Link
                     to="/solucoes"
                     hash={item.id}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#042148] hover:text-[#094AEB] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors group-hover:translate-x-1"
                   >
                     Ver detalhes
-                    <ArrowRight className="size-3.5" />
+                    <ArrowRight className="size-3.5 text-[#094AEB]" />
                   </Link>
 
                   <a
                     href={`https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20${encodeURIComponent(item.title)}.`}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded bg-[#EE4C1B] hover:bg-[#d63d0f] text-white text-xs font-bold px-3.5 py-1.5 transition-colors"
+                    className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white text-xs font-bold px-4 py-2 transition-all shadow-md shadow-[#EE4C1B]/20 hover:scale-105"
                   >
                     Cotar Solução
                   </a>

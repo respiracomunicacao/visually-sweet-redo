@@ -23,16 +23,22 @@ function TeamPage() {
       {/* =========================================================================
           1. BANNER IMAGEM + TÍTULO E FRASE DE APOIO
          ========================================================================= */}
-      <section className="relative bg-[#042148] text-white py-20 px-5 lg:px-8 border-b border-slate-800">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Nosso Time
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white font-display">
-              Gente cuidando de gente através da tecnologia.
+      <section className="relative bg-[#060B18] text-white py-28 lg:py-36 px-5 lg:px-8 border-b border-white/5 overflow-hidden">
+        {/* Glows de ambientação */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-slate-300">
+              <span className="text-[#094AEB]">&lt;</span>
+              <span className="font-display tracking-widest uppercase">NOSSO TIME</span>
+              <span className="text-[#EE4C1B]">&gt;</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
+              Gente cuidando de gente através da <span className="italic text-[#EE4C1B]">tecnologia.</span>
             </h1>
-            <p className="text-lg text-slate-300 leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-body">
               Conheça os profissionais que garantem a disponibilidade contínua dos seus servidores, suporte ágil aos seus colaboradores e segurança da informação.
             </p>
 
@@ -40,7 +46,7 @@ function TeamPage() {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Button
                 asChild
-                className="rounded-full bg-[#EE4C1B] hover:bg-[#d63d0f] text-white font-bold text-sm h-12 px-7 transition-colors font-display"
+                className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white font-bold text-sm h-14 px-8 transition-all shadow-xl shadow-[#EE4C1B]/25 font-display hover:scale-105"
               >
                 <a
                   href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20equipe%20Dualcon."
@@ -62,16 +68,16 @@ function TeamPage() {
       {/* =========================================================================
           2. FOTO + SETOR + FUNÇÃO DESEMPENHADA NO ATENDIMENTO
          ========================================================================= */}
-      <section className="bg-slate-50 py-20 px-5 lg:px-8 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Especialistas Certificados
+      <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> ESPECIALISTAS CERTIFICADOS <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Quem cuida da sua empresa
             </h2>
-            <p className="mt-3 text-base text-slate-600">
+            <p className="mt-4 text-base sm:text-lg text-slate-300">
               Corpo técnico multidisciplinar preparado para atender chamados emergenciais e planejar projetos complexos.
             </p>
           </div>
@@ -80,27 +86,28 @@ function TeamPage() {
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="rounded-xl bg-white border border-slate-200 overflow-hidden shadow-xs hover:border-[#094AEB] hover:shadow-md transition-all flex flex-col justify-between"
+                className="rounded-2xl glass-panel glass-panel-hover overflow-hidden flex flex-col justify-between group"
               >
                 <div>
-                  <div className="aspect-[4/3] bg-slate-100 overflow-hidden border-b border-slate-100">
+                  <div className="aspect-[4/3] bg-slate-900 overflow-hidden relative">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1226] via-transparent to-transparent opacity-80" />
                   </div>
                   <div className="p-6">
                     <span className="text-[11px] font-bold text-[#EE4C1B] uppercase tracking-wider font-display">
                       {member.department}
                     </span>
-                    <h3 className="mt-1 text-base font-bold text-[#042148] font-display">
+                    <h3 className="mt-1 text-lg font-bold text-white font-display">
                       {member.name}
                     </h3>
                     <p className="text-xs font-semibold text-[#094AEB] mt-0.5">
                       {member.role}
                     </p>
-                    <p className="mt-3 text-xs text-slate-600 leading-relaxed">
+                    <p className="mt-3 text-xs text-slate-300 leading-relaxed font-body">
                       {member.description}
                     </p>
                   </div>
@@ -114,51 +121,57 @@ function TeamPage() {
       {/* =========================================================================
           3. GALERIA DE FOTOS DA SEDE E EQUIPE
          ========================================================================= */}
-      <section className="bg-white py-20 px-5 lg:px-8 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Estrutura Física
+      <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> ESTRUTURA FÍSICA <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Nossa Sede em Campo Bom – RS
             </h2>
-            <p className="mt-3 text-base text-slate-600">
+            <p className="mt-4 text-base sm:text-lg text-slate-400">
               Laboratório próprio para testes de homologação, bancadas de manutenção e centro de monitoramento.
             </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl overflow-hidden border border-slate-200 shadow-xs">
-              <img
-                src="/card-relacoes.png"
-                alt="Equipe reunida na sede"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs font-semibold text-[#042148]">
+            <div className="rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2">
+              <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="/card-relacoes.png"
+                  alt="Equipe reunida na sede"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4 text-xs font-bold text-white font-display">
                 Equipe Técnica e Gestão de TI
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-slate-200 shadow-xs">
-              <img
-                src="/card-descomplicar.png"
-                alt="Atendimento presencial e suporte"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs font-semibold text-[#042148]">
+            <div className="rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2">
+              <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="/card-descomplicar.png"
+                  alt="Atendimento presencial e suporte"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4 text-xs font-bold text-white font-display">
                 Bancada de Testes e Suporte
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-slate-200 shadow-xs">
-              <img
-                src="/suporte-ti.png"
-                alt="Operação de suporte em TI"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs font-semibold text-[#042148]">
-                Atendimento Remoto e Monitoramento NOC
+            <div className="rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2">
+              <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="/suporte-ti.png"
+                  alt="Operação de suporte em TI"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4 text-xs font-bold text-white font-display">
+                Atendimento Remoto e NOC
               </div>
             </div>
           </div>

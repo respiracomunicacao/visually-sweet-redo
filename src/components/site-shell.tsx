@@ -83,32 +83,32 @@ export function SiteHeader() {
   return (
     <>
       <TopBar />
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-200">
+      <header className="sticky top-0 z-40 bg-[#060B18]/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
           
-          {/* Logo Oficial Vetorial em SVG Horizontal da Pasta LOGOS */}
-          <Link to="/" className="flex items-center shrink-0" aria-label="Dualcon Conectividade">
+          {/* Logo Oficial Vetorial em SVG Horizontal Branca */}
+          <Link to="/" className="flex items-center shrink-0 group" aria-label="Dualcon Conectividade">
             <img
-              src="/logo-dualcon-horizontal-color.svg"
+              src="/logo-dualcon-horizontal-white.svg"
               alt="Dualcon Conectividade"
               width={220}
               height={48}
-              className="h-9 sm:h-11 w-auto object-contain"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
-          {/* Menu de Navegação Sólido e Elegante */}
-          <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-1">
+          {/* Menu de Navegação Moderno */}
+          <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = pathname === link.to;
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-3.5 py-2 text-xs font-extrabold tracking-wider transition-colors rounded-md font-display ${
+                  className={`px-4 py-2 text-xs font-bold tracking-wider transition-all rounded-full font-display ${
                     isActive
-                      ? 'text-[#042148] border-b-2 border-[#EE4C1B] rounded-none'
-                      : 'text-slate-700 hover:text-[#042148] hover:bg-slate-50'
+                      ? 'bg-[#EE4C1B] text-white shadow-md shadow-[#EE4C1B]/30'
+                      : 'text-slate-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -121,7 +121,7 @@ export function SiteHeader() {
           <div className="hidden sm:flex items-center gap-4">
             <Button
               asChild
-              className="rounded-full bg-[#EE4C1B] hover:bg-[#d63d0f] text-white font-bold px-6 h-10 text-xs transition-colors tracking-wide font-display shadow-sm"
+              className="rounded-full bg-gradient-to-r from-[#EE4C1B] to-[#ff5e30] hover:from-[#ff5e30] hover:to-[#EE4C1B] text-white font-bold px-6 h-10 text-xs transition-all tracking-wide font-display shadow-lg shadow-[#EE4C1B]/25 hover:shadow-[#EE4C1B]/40 hover:scale-105"
             >
               <a
                 href="https://wa.me/5551993321591?text=Ol%C3%A1!%20Gostaria%20de%20um%20diagn%C3%B3stico%20de%20TI."
@@ -138,7 +138,7 @@ export function SiteHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-[#042148]"
+            className="lg:hidden text-white hover:bg-white/10"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           >
@@ -148,7 +148,7 @@ export function SiteHeader() {
 
         {/* Menu Mobile */}
         {open && (
-          <nav className="border-t border-slate-200 bg-white px-6 py-5 lg:hidden flex flex-col gap-2">
+          <nav className="border-t border-white/10 bg-[#0A1226]/95 backdrop-blur-2xl px-6 py-5 lg:hidden flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -156,14 +156,14 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={`px-4 py-2.5 rounded-lg text-sm font-bold font-display ${
                   pathname === link.to
-                    ? 'bg-[#042148] text-white'
-                    : 'text-slate-700 hover:bg-slate-100'
+                    ? 'bg-[#EE4C1B] text-white'
+                    : 'text-slate-300 hover:bg-white/5'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+            <div className="mt-3 pt-3 border-t border-white/10 flex flex-col gap-2">
               <a
                 href="https://wa.me/5551993321591"
                 target="_blank"
@@ -253,86 +253,112 @@ export function ContactBand({
 
 export function InstagramFeedWidget() {
   return (
-    <section className="bg-white py-14 px-5 lg:px-8 border-t border-slate-200">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+    <section className="bg-[#060B18] py-20 px-5 lg:px-8 border-t border-white/5 relative overflow-hidden">
+      {/* Luz de fundo sutil */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#094AEB]/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Redes Sociais
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> COMUNICAÇÃO VISUAL & REDES <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h3 className="mt-1 text-2xl font-extrabold text-[#042148] font-display">
-              Siga a Dualcon no Instagram
+            <h3 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-display">
+              Acompanhe a Dualcon no Instagram
             </h3>
+            <p className="mt-2 text-sm text-slate-400">
+              Conteúdos práticos, novidades do setor de TI e podcasts sobre segurança digital.
+            </p>
           </div>
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
             rel="noreferrer"
-            className="text-xs font-bold text-[#EE4C1B] hover:underline inline-flex items-center gap-1 font-display"
+            className="rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white px-5 py-2.5 transition-all inline-flex items-center gap-2 font-display hover:border-[#EE4C1B]"
           >
-            @dualcon_conectividade ↗
+            <span>@dualcon_conectividade</span>
+            <span className="text-[#EE4C1B]">↗</span>
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Post 1: Glass Segurança 3D */}
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
             rel="noreferrer"
-            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+            className="group relative rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2 flex flex-col"
           >
-            <img
-              src="/suporte-ti.png"
-              alt="Suporte Técnico Dualcon"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
-              Consultoria & Suporte de TI
+            <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+              <img
+                src="/post-glass-seguranca.png"
+                alt="Segurança e Gestão de TI com Vidro 3D"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-3 left-3 right-3 text-xs font-bold text-white font-display">
+                Segurança Corporativa & Gestão
+              </div>
             </div>
           </a>
+
+          {/* Post 2: Conectando o agora ao futuro */}
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
             rel="noreferrer"
-            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+            className="group relative rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2 flex flex-col"
           >
-            <img
-              src="/card-relacoes.png"
-              alt="Equipe Dualcon"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
-              Equipe & Proximidade Humana
+            <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+              <img
+                src="/post-futuro.jpg"
+                alt="Conectando o agora ao futuro"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-3 left-3 right-3 text-xs font-bold text-white font-display">
+                Conectando o Agora ao Futuro
+              </div>
             </div>
           </a>
+
+          {/* Post 3: Conversas que Transformam Podcast */}
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
             rel="noreferrer"
-            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+            className="group relative rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2 flex flex-col"
           >
-            <img
-              src="/ia-card.jpg"
-              alt="Inteligência Artificial e Inovação"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
-              Tecnologia & Inovação
+            <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+              <img
+                src="/post-conversas.png"
+                alt="Podcast Conversas que Transformam"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-3 left-3 right-3 text-xs font-bold text-white font-display">
+                Podcast & Insights de Negócios
+              </div>
             </div>
           </a>
+
+          {/* Post 4: Inteligência & Suporte Proativo */}
           <a
             href="https://www.instagram.com/dualcon_conectividade/"
             target="_blank"
             rel="noreferrer"
-            className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200"
+            className="group relative rounded-2xl overflow-hidden glass-panel glass-panel-hover p-2 flex flex-col"
           >
-            <img
-              src="/card-descomplicar.png"
-              alt="Descomplicando a TI"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-[#042148]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold p-3 text-center">
-              Suporte Presencial & Remoto
+            <div className="aspect-[4/5] rounded-xl overflow-hidden relative">
+              <img
+                src="/ia-card.jpg"
+                alt="Inovação e Suporte"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-3 left-3 right-3 text-xs font-bold text-white font-display">
+                Inovação & Estratégia Tecnológica
+              </div>
             </div>
           </a>
         </div>

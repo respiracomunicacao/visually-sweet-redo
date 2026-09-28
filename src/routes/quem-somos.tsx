@@ -33,16 +33,22 @@ function AboutPage() {
       {/* =========================================================================
           1. BANNER COM FRASE DESTACANDO INOVAÇÃO (A DUALCON)
          ========================================================================= */}
-      <section className="relative bg-[#042148] text-white py-20 px-5 lg:px-8 border-b border-slate-800">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl space-y-5">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              A DUALCON
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white font-display">
-              Inovação contínua para conectar o agora ao futuro.
+      <section className="relative bg-[#060B18] text-white py-28 lg:py-36 px-5 lg:px-8 border-b border-white/5 overflow-hidden">
+        {/* Glow de ambientação */}
+        <div className="absolute top-0 right-10 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-slate-300">
+              <span className="text-[#094AEB]">&lt;</span>
+              <span className="font-display tracking-widest uppercase">CONECTIVIDADE & INOVAÇÃO</span>
+              <span className="text-[#EE4C1B]">&gt;</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
+              Inovação contínua para conectar o <span className="italic text-[#EE4C1B]">agora ao futuro.</span>
             </h1>
-            <p className="text-lg text-slate-300 leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-body">
               Acreditamos que a tecnologia só atinge seu verdadeiro potencial quando combinada com a proximidade e sensibilidade das relações humanas.
             </p>
           </div>
@@ -55,49 +61,49 @@ function AboutPage() {
       {/* =========================================================================
           2. HISTÓRIA EM ITENS (Linha do Tempo e Marcos de 20 Anos)
          ========================================================================= */}
-      <section className="bg-white py-20 px-5 lg:px-8 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Nossa Trajetória
+      <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> NOSSA TRAJETÓRIA <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               20 anos construindo pontes tecnológicas sólidas
             </h2>
-            <p className="mt-3 text-base text-slate-600">
+            <p className="mt-4 text-base text-slate-400">
               Conheça em itens como evoluímos ao lado dos maiores polos empresariais do Rio Grande do Sul.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-6">
-              <span className="text-2xl font-black text-[#EE4C1B] font-display">2005</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Fundação & Cabeamento</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
+              <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">2005</span>
+              <h3 className="mt-3 text-lg font-bold text-white font-display">Fundação & Cabeamento</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Início das operações em Campo Bom – RS, com foco em estruturação física de redes, servidores locais e suporte a empresas do Vale dos Sinos.
               </p>
             </div>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-6">
-              <span className="text-2xl font-black text-[#094AEB] font-display">2012</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Parceria Dell & Servidores</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#094AEB]">
+              <span className="text-3xl font-extrabold text-[#094AEB] font-display">2012</span>
+              <h3 className="mt-3 text-lg font-bold text-white font-display">Parceria Dell & Servidores</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Homologação técnica oficial com a Dell Technologies, levando servidores de alta densidade e storages para indústrias e empresas de comércio exterior.
               </p>
             </div>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-6">
-              <span className="text-2xl font-black text-[#042148] font-display">2018</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Segurança & Nuvem</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-slate-400">
+              <span className="text-3xl font-extrabold text-slate-200 font-display">2018</span>
+              <h3 className="mt-3 text-lg font-bold text-white font-display">Segurança & Nuvem</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Expansão para cibersegurança avançada com Fortinet, Bitdefender e rotinas de backup Veeam em nuvem, garantindo tolerância zero a ransomware.
               </p>
             </div>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-6">
-              <span className="text-2xl font-black text-[#EE4C1B] font-display">Hoje</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Conectando o Agora ao Futuro</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
+              <span className="text-3xl font-extrabold text-[#EE4C1B] font-display">Hoje</span>
+              <h3 className="mt-3 text-lg font-bold text-white font-display">Conectando o Futuro</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Mais de duas décadas de credibilidade técnica, integrando inteligência artificial, computação corporativa e suporte presencial humanizado.
               </p>
             </div>
@@ -108,68 +114,68 @@ function AboutPage() {
       {/* =========================================================================
           3. MISSÃO, VISÃO E VALORES
          ========================================================================= */}
-      <section className="bg-slate-50 py-20 px-5 lg:px-8 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Pilares Fundamentais
+      <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> PILARES FUNDAMENTAIS <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Missão, Visão e Valores
             </h2>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Missão */}
-            <div className="rounded-xl bg-white border border-slate-200 p-8 shadow-xs">
-              <div className="size-12 rounded-lg bg-[#EE4C1B]/10 text-[#EE4C1B] flex items-center justify-center mb-6">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-8 border-t-2 border-t-[#EE4C1B]">
+              <div className="size-12 rounded-xl bg-[#EE4C1B]/10 border border-[#EE4C1B]/30 text-[#EE4C1B] flex items-center justify-center mb-6">
                 <Target className="size-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#042148] font-display mb-3">
+              <h3 className="text-xl font-bold text-white font-display mb-3">
                 Missão
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 Fornecer conhecimento tecnológico para gerar resultados, eliminar paradas não programadas e reduzir custos operacionais, garantindo que nossos clientes cresçam com estabilidade e tranquilidade.
               </p>
             </div>
 
             {/* Visão */}
-            <div className="rounded-xl bg-white border border-slate-200 p-8 shadow-xs">
-              <div className="size-12 rounded-lg bg-[#094AEB]/10 text-[#094AEB] flex items-center justify-center mb-6">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-8 border-t-2 border-t-[#094AEB]">
+              <div className="size-12 rounded-xl bg-[#094AEB]/10 border border-[#094AEB]/30 text-[#094AEB] flex items-center justify-center mb-6">
                 <Eye className="size-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#042148] font-display mb-3">
+              <h3 className="text-xl font-bold text-white font-display mb-3">
                 Visão
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 Ser o parceiro estratégico de infraestrutura de TI e conectividade mais confiável e próximo das empresas no Sul do Brasil, reconhecido pela excelência técnica e relações humanas duradouras.
               </p>
             </div>
 
             {/* Valores */}
-            <div className="rounded-xl bg-white border border-slate-200 p-8 shadow-xs">
-              <div className="size-12 rounded-lg bg-[#042148]/10 text-[#042148] flex items-center justify-center mb-6">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-8 border-t-2 border-t-slate-300">
+              <div className="size-12 rounded-xl bg-white/10 border border-white/20 text-white flex items-center justify-center mb-6">
                 <HeartHandshake className="size-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#042148] font-display mb-3">
+              <h3 className="text-xl font-bold text-white font-display mb-3">
                 Valores
               </h3>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-center gap-2">
+              <ul className="space-y-2.5 text-sm text-slate-300">
+                <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0" />
-                  <span><strong>Proximidade Humana:</strong> atendimento de pessoa para pessoa.</span>
+                  <span><strong className="text-white">Proximidade Humana:</strong> atendimento de pessoa para pessoa.</span>
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0" />
-                  <span><strong>Transparência e Ética:</strong> soluções reais sem burocracia.</span>
+                  <span><strong className="text-white">Transparência e Ética:</strong> soluções reais sem burocracia.</span>
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0" />
-                  <span><strong>Agilidade:</strong> compromisso estrito com SLA e resposta.</span>
+                  <span><strong className="text-white">Agilidade:</strong> compromisso estrito com SLA e resposta.</span>
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="size-4 text-[#EE4C1B] shrink-0" />
-                  <span><strong>Inovação Segura:</strong> tecnologia homologada e testada.</span>
+                  <span><strong className="text-white">Inovação Segura:</strong> tecnologia homologada e testada.</span>
                 </li>
               </ul>
             </div>
@@ -180,49 +186,49 @@ function AboutPage() {
       {/* =========================================================================
           4. COMO FUNCIONA O ATENDIMENTO DUALCON
          ========================================================================= */}
-      <section className="bg-white py-20 px-5 lg:px-8 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display">
-              Metodologia de Trabalho
+      <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
+              <span className="text-[#094AEB]">&lt;</span> METODOLOGIA DE TRABALHO <span className="text-[#EE4C1B]">&gt;</span>
             </span>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#042148] font-display">
+            <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Como funciona o atendimento DUALCON
             </h2>
-            <p className="mt-3 text-base text-slate-600">
+            <p className="mt-4 text-base text-slate-400">
               Um fluxo claro, consultivo e focado na solução definitiva de problemas.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-4">
-            <div className="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
               <span className="text-xs font-bold text-[#EE4C1B] uppercase tracking-wider font-display">Etapa 01</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Diagnóstico Gratuito</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+              <h3 className="mt-2 text-lg font-bold text-white font-display">Diagnóstico Gratuito</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Mapeamos a estrutura atual de servidores, rede, segurança e rotinas de backup para identificar gargalos e riscos.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#094AEB]">
               <span className="text-xs font-bold text-[#094AEB] uppercase tracking-wider font-display">Etapa 02</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Planejamento & Dimensionamento</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+              <h3 className="mt-2 text-lg font-bold text-white font-display">Planejamento Técnico</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Desenvolvemos uma proposta sob medida com equipamentos homologados Dell e licenças necessárias sem desperdício.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 p-6 bg-slate-50">
-              <span className="text-xs font-bold text-[#042148] uppercase tracking-wider font-display">Etapa 03</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Implantação Segura</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-slate-300">
+              <span className="text-xs font-bold text-slate-300 uppercase tracking-wider font-display">Etapa 03</span>
+              <h3 className="mt-2 text-lg font-bold text-white font-display">Implantação Segura</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Execução limpa e transparente sem interromper o expediente de trabalho ou o fluxo comercial da sua empresa.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <div className="rounded-2xl glass-panel glass-panel-hover p-7 border-t-2 border-t-[#EE4C1B]">
               <span className="text-xs font-bold text-[#EE4C1B] uppercase tracking-wider font-display">Etapa 04</span>
-              <h3 className="mt-2 text-base font-bold text-[#042148] font-display">Monitoramento Contínuo</h3>
-              <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+              <h3 className="mt-2 text-lg font-bold text-white font-display">Monitoramento Contínuo</h3>
+              <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Acompanhamento proativo diário, suporte presencial e remoto com chamados atendidos rapidamente.
               </p>
             </div>
