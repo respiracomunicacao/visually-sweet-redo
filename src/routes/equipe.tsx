@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
 import { MessageSquare, ArrowRight, ShieldCheck, Users, Award, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContactBand } from '@/components/site-shell';
@@ -18,25 +19,39 @@ export const Route = createFileRoute('/equipe')({
 });
 
 function TeamPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* =========================================================================
           1. BANNER IMAGEM + TÍTULO E FRASE DE APOIO
          ========================================================================= */}
       <section className="relative bg-[#060B18] text-white py-28 lg:py-36 px-5 lg:px-8 border-b border-white/5 overflow-hidden">
-        {/* Glows de ambientação */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none" />
+        {/* Glows de ambientação com parallax */}
+        <div
+          className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+        />
+        <div
+          className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * 0.12}px)` }}
+        />
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-slate-300">
-              <span className="text-[#094AEB]">&lt;</span>
-              <span className="font-display tracking-widest uppercase">NOSSO TIME</span>
-              <span className="text-[#EE4C1B]">&gt;</span>
-            </div>
+            <span className="section-badge section-badge-dark">
+              NOSSO TIME
+            </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
-              Gente cuidando de gente através da <span className="italic text-[#EE4C1B]">tecnologia.</span>
+              Gente cuidando de gente através da <span className="text-gradient-shimmer italic font-black">tecnologia.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-body">
               Conheça os profissionais que garantem a disponibilidade contínua dos seus servidores, suporte ágil aos seus colaboradores e segurança da informação.
@@ -71,8 +86,8 @@ function TeamPage() {
       <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> ESPECIALISTAS CERTIFICADOS <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-dark mb-3">
+              ESPECIALISTAS CERTIFICADOS
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Quem cuida da sua empresa
@@ -124,8 +139,8 @@ function TeamPage() {
       <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> ESTRUTURA FÍSICA <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-dark mb-3">
+              ESTRUTURA FÍSICA
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Nossa Sede em Campo Bom – RS

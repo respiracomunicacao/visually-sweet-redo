@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
 import { ArrowUpRight, MessageSquare, BookOpen } from 'lucide-react';
 import { news } from '@/lib/site-content';
 import { ContactBand } from '@/components/site-shell';
@@ -18,23 +19,37 @@ export const Route = createFileRoute('/novidades')({
 });
 
 function NewsPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* Banner Principal do Blog */}
       <section className="relative bg-[#060B18] text-white py-28 lg:py-36 px-5 lg:px-8 border-b border-white/5 overflow-hidden">
-        {/* Glows de ambientação */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none" />
+        {/* Glows de ambientação com parallax */}
+        <div
+          className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+        />
+        <div
+          className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * 0.12}px)` }}
+        />
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-slate-300">
-              <span className="text-[#094AEB]">&lt;</span>
-              <span className="font-display tracking-widest uppercase">CONTEÚDO & ARTIGOS</span>
-              <span className="text-[#EE4C1B]">&gt;</span>
-            </div>
+            <span className="section-badge section-badge-dark">
+              CONTEÚDO & ARTIGOS
+            </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display leading-tight">
-              Blog Dualcon: Conhecimento que <span className="italic text-[#EE4C1B]">impulsiona negócios.</span>
+              Blog Dualcon: Conhecimento que <span className="text-gradient-shimmer italic font-black">impulsiona negócios.</span>
             </h1>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-body">
               Informações técnicas, boas práticas de cibersegurança e tendências corporativas de TI explicadas de forma clara e descomplicada.

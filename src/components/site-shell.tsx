@@ -260,8 +260,8 @@ export function InstagramFeedWidget() {
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> COMUNICAÇÃO VISUAL & REDES <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-dark mb-2">
+              COMUNICAÇÃO VISUAL & REDES
             </span>
             <h3 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-display">
               Acompanhe a Dualcon no Instagram

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
 import {
   ArrowRight,
   CheckCircle2,
@@ -28,25 +29,39 @@ export const Route = createFileRoute('/quem-somos')({
 });
 
 function AboutPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* =========================================================================
           1. BANNER COM FRASE DESTACANDO INOVAÇÃO (A DUALCON)
          ========================================================================= */}
       <section className="relative bg-[#060B18] text-white py-28 lg:py-36 px-5 lg:px-8 border-b border-white/5 overflow-hidden">
-        {/* Glow de ambientação */}
-        <div className="absolute top-0 right-10 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none" />
+        {/* Glow de ambientação com parallax */}
+        <div
+          className="absolute top-0 right-10 w-[500px] h-[500px] bg-[#094AEB]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+        />
+        <div
+          className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[#EE4C1B]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * 0.12}px)` }}
+        />
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-slate-300">
-              <span className="text-[#094AEB]">&lt;</span>
-              <span className="font-display tracking-widest uppercase">CONECTIVIDADE & INOVAÇÃO</span>
-              <span className="text-[#EE4C1B]">&gt;</span>
-            </div>
+            <span className="section-badge section-badge-dark">
+              CONECTIVIDADE & INOVAÇÃO
+            </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
-              Inovação contínua para conectar o <span className="italic text-[#EE4C1B]">agora ao futuro.</span>
+              Inovação contínua para conectar o <span className="text-gradient-shimmer italic font-black">agora ao futuro.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-body">
               Acreditamos que a tecnologia só atinge seu verdadeiro potencial quando combinada com a proximidade e sensibilidade das relações humanas.
@@ -65,8 +80,8 @@ function AboutPage() {
       <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> NOSSA TRAJETÓRIA <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-light mb-3">
+              NOSSA TRAJETÓRIA
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               20 anos construindo pontes tecnológicas sólidas
@@ -118,8 +133,8 @@ function AboutPage() {
       <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> PILARES FUNDAMENTAIS <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-dark mb-3">
+              PILARES FUNDAMENTAIS
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Missão, Visão e Valores
@@ -190,8 +205,8 @@ function AboutPage() {
       <section className="bg-[#060B18] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> METODOLOGIA DE TRABALHO <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-dark mb-3">
+              METODOLOGIA DE TRABALHO
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
               Como funciona o atendimento DUALCON

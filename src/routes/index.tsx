@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
 import {
   ArrowRight,
   CheckCircle2,
@@ -29,20 +30,36 @@ export const Route = createFileRoute('/')({
 });
 
 export function HomePage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* =========================================================================
           1. BANNER PRINCIPAL (HOME)
-          Imagem CDR-Technology nítida e protagonista com movimento elegante
+          Imagem com Parallax e Movimento Dinâmico
           Luzes suaves de contraste inspiradas nas capas do Instagram
          ========================================================================= */}
-      <section className="relative bg-[#070E22] text-white py-24 lg:py-36 px-5 lg:px-8 border-b border-white/10 overflow-hidden min-h-[680px] flex items-center justify-center">
-        {/* Imagem de Fundo com Movimento Suave e Alta Nitidez (Opacidade Ampliada) */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <section className="relative bg-[#070E22] text-white py-24 lg:py-36 px-5 lg:px-8 border-b border-white/10 overflow-hidden min-h-[700px] flex items-center justify-center">
+        {/* Camada Parallax da Imagem de Fundo (Move-se suavemente ao rolar a página) */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none"
+          style={{
+            transform: `translateY(${scrollY * 0.28}px) scale(${1 + scrollY * 0.0003})`,
+            transition: 'transform 0.08s ease-out',
+          }}
+        >
           <img
             src="/CDR-Technology.png"
             alt="Infraestrutura de tecnologia e nuvem corporativa"
-            className="w-full h-full object-cover object-center animate-hero-bg opacity-70"
+            className="w-full h-[120%] object-cover object-center animate-hero-bg opacity-75"
           />
         </div>
 
@@ -50,22 +67,29 @@ export function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#040D24]/90 via-[#040D24]/60 to-[#040D24]/85 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#040D24]/30 to-[#070E22] pointer-events-none" />
         
-        {/* Feixes e Reflexos de luz azul e laranja da identidade visual */}
-        <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#094AEB]/25 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-[550px] h-[550px] bg-[#EE4C1B]/20 rounded-full blur-[150px] pointer-events-none" />
+        {/* Feixes e Reflexos de luz azul e laranja com Parallax e Pulsação suave */}
+        <div
+          className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#094AEB]/25 rounded-full blur-[150px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * -0.15}px)` }}
+        />
+        <div
+          className="absolute -bottom-20 -right-20 w-[550px] h-[550px] bg-[#EE4C1B]/20 rounded-full blur-[150px] pointer-events-none animate-pulse-glow"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+        />
 
         <div className="relative z-10 mx-auto max-w-5xl text-center space-y-8">
-          {/* Badge Oficial com a marca DCN */}
-          <div className="inline-flex items-center gap-3 rounded-full glass-panel px-5 py-2 text-xs font-bold text-slate-200 shadow-xl border border-white/20">
-            <span className="text-[#094AEB] font-extrabold text-sm">&lt;</span>
-            <span className="font-display tracking-widest text-[#F8FAFC]">CONECTANDO O AGORA AO <em className="text-[#EE4C1B] not-italic">FUTURO</em></span>
-            <span className="text-[#EE4C1B] font-extrabold text-sm">&gt;</span>
+          {/* Badge Oficial sem tags (< >) no estilo clean do Instagram */}
+          <div className="inline-flex items-center gap-2 rounded-full glass-panel px-5 py-2 text-xs font-bold text-slate-200 shadow-xl border border-white/20">
+            <span className="size-2 rounded-full bg-[#EE4C1B] animate-ping" />
+            <span className="font-display tracking-widest text-[#F8FAFC]">
+              CONECTANDO O AGORA AO <em className="text-[#EE4C1B] not-italic">FUTURO</em>
+            </span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight font-display drop-shadow-md">
             Mais do que suporte. <br />
             <span>Somos seu braço</span>{" "}
-            <span className="italic text-[#EE4C1B]">direito digital.</span>
+            <span className="text-gradient-shimmer italic font-black">direito digital.</span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-lg sm:text-xl text-slate-200 leading-relaxed font-body drop-shadow-sm font-medium">
@@ -127,8 +151,8 @@ export function HomePage() {
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> DIAGNÓSTICO ESTRATÉGICO <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-light mb-3">
+              DIAGNÓSTICO ESTRATÉGICO
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               Entendemos a realidade da sua empresa
@@ -225,9 +249,11 @@ export function HomePage() {
          ========================================================================= */}
       <section className="bg-[#040916] py-24 px-5 lg:px-8 border-b border-white/5 relative overflow-hidden">
         <div className="mx-auto max-w-4xl text-center space-y-6 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-            <span className="text-[#094AEB]">&lt;</span> APRESENTAÇÃO INSTITUCIONAL <span className="text-[#EE4C1B]">&gt;</span>
-          </span>
+          <div className="flex justify-center">
+            <span className="section-badge section-badge-dark">
+              APRESENTAÇÃO INSTITUCIONAL
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
             Conheça a estrutura da Dualcon Conectividade
           </h2>
@@ -269,8 +295,8 @@ export function HomePage() {
       <section className="bg-[#F8FAFC] py-24 px-5 lg:px-8 border-b border-slate-200/80 relative overflow-hidden bg-wave-lines-light">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-              <span className="text-[#094AEB]">&lt;</span> CREDIBILIDADE & CONFIANÇA <span className="text-[#EE4C1B]">&gt;</span>
+            <span className="section-badge section-badge-light mb-3">
+              CREDIBILIDADE & CONFIANÇA
             </span>
             <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-[#042148] font-display">
               O que dizem os clientes da Dualcon
@@ -312,8 +338,8 @@ export function HomePage() {
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14 pb-6 border-b border-white/10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#EE4C1B] font-display flex items-center gap-2">
-                <span className="text-[#094AEB]">&lt;</span> CONTEÚDO & ATUALIZAÇÕES <span className="text-[#EE4C1B]">&gt;</span>
+              <span className="section-badge section-badge-dark mb-2">
+                CONTEÚDO & ATUALIZAÇÕES
               </span>
               <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-white font-display">
                 Blog da Dualcon

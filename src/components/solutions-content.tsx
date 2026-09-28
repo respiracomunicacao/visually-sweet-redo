@@ -36,9 +36,11 @@ export function PartnerLogosBar() {
   return (
     <section className="bg-white border-y border-slate-200/80 py-12 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-[#042148] mb-8 font-display flex items-center justify-center gap-2">
-          <span className="text-[#094AEB]">&lt;</span> PARCEIROS TECNOLÓGICOS HOMOLOGADOS <span className="text-[#EE4C1B]">&gt;</span>
-        </p>
+        <div className="flex justify-center mb-8">
+          <span className="section-badge section-badge-light">
+            PARCEIROS TECNOLÓGICOS HOMOLOGADOS
+          </span>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {partnerLogosData.map((brand) => (
             <div
@@ -67,8 +69,8 @@ export function SolutionsGrid({ compact = false }: { compact?: boolean }) {
 
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#EE4C1B] font-display flex items-center justify-center gap-2">
-            <span className="text-[#094AEB]">&lt;</span> ESPECIALIDADES & INFRAESTRUTURA <span className="text-[#EE4C1B]">&gt;</span>
+          <span className="section-badge section-badge-dark mb-3">
+            ESPECIALIDADES & INFRAESTRUTURA
           </span>
           <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-white font-display">
             Soluções Completas em Conectividade e TI
