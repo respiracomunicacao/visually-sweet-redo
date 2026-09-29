@@ -1,13 +1,19 @@
 @echo off
 chcp 65001 > nul
-title DUALCON - Publicar Atualizacao Online
+title DUALCON - Colocar Site no Ar
 
 echo ========================================================
-echo   DUALCON - Publicando Versao Oficial na Nuvem
+echo   DUALCON - ATIVANDO VISUALIZACAO ONLINE
 echo ========================================================
 echo.
 
-echo [1/2] Compilando versao de producao...
+cd /d "%~dp0"
+
+echo Configurando status para ONLINE...
+powershell -NoProfile -Command "Set-Content -Path 'src\site-status.json' -Value '{\"online\": true}' -Encoding utf8"
+
+echo.
+echo [1/2] Compilando versao ativa...
 call bun run build
 if %errorlevel% neq 0 (
     echo.
@@ -17,14 +23,14 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [2/2] Enviando para a nuvem global da Cloudflare...
-cd .output
-call npx wrangler deploy --temporary
+echo [2/2] Atualizando na nuvem global da Cloudflare...
+call npx --prefix .output wrangler deploy --temporary
 
 echo.
 echo =========================================================================
-echo   [SUCESSO] Site publicado com sucesso na nuvem!
-echo   Link permanente e 24h acessivel:
+echo   [SITE NO AR!] Visualizacao ativada com sucesso.
+echo.
+echo   Link acessivel para o cliente:
 echo   https://respiracomunicacao-visually-sweet-redo.chief-archduke.workers.dev
 echo =========================================================================
 echo.
